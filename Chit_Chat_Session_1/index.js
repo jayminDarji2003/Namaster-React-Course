@@ -51,22 +51,48 @@ const obj = {
   },
 };
 
-obj.fn();  // obj as this
-obj.fn2();  // window as this
+obj.fn(); // obj as this
+obj.fn2(); // window as this
 
 // About this keyword
 
 const person = {
-    name : "Jaymin"
-}
-const person2 = {
-    name : "deep"
-}
-
-function x() {
+  name: "Jaymin",
+  print: function x() {
     console.log(this);
-}
+  },
+};
+const person2 = {
+  name: "deep",
+};
 
 x.call(person);
 x.call(person2);
 x.call(this);
+
+person.print();
+person.print.call();
+person.print.call(this);
+person.print.call(person2);
+person.print.call(person);
+
+// arrow function
+const object = {
+  firstName: "jaymin",
+  printName: () => {
+    console.log(this.firstName);
+  },
+  printName2: function () {
+    console.log(this);
+  },
+};
+
+const object2 = {
+  firstName: "simran",
+};
+
+object.printName();
+object.printName2();
+
+object.printName.call();
+object.printName2.call();

@@ -1,0 +1,29 @@
+Tips about Interviews:-
+
+-> When we are giving interviews then most of the time, below points are important
+
+----------------- can't control ---------------
+1. Luck - can't control
+2. Most company don't train their interviews well
+3. A person can be a good software engineer but a nad interviewer
+
+----------------- control : Our Preparation ---------------
+1. Technical skill      (50%) : 5/5 days
+    - everyone know how to study
+2. Communication skill  (50%) : 0/5 days
+    - speak your thoughts while you code
+        - Practice to speak even when you're coding along
+    - If you can't explain, then (interviewer thinks) you don't know
+    - You don't work alone in the company   
+        - company expect you to have good Communications skills
+        - It's a hard truth, you should know english
+    - Mock interviews
+3. Preparation on the interview days    
+    - you should be hustling at last moment
+    - pen/paper must have
+    - water bottle
+    - must have charging on laptop
+    - keep your camera open
+    - keep your phone on silent
+
+NOTE : CONFIDENCE COME FROM PREPARATION
