@@ -20,6 +20,7 @@ const container = React.createElement(
   "div",
   {
     id: "container",
+    // hello: "helloWorld"  // it's called props
   },
   [heading, heading2]
 );
