@@ -2947,10 +2947,12 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _client = require("react-dom/client");
 var _clientDefault = parcelHelpers.interopDefault(_client);
 const heading = /*#__PURE__*/ (0, _reactDefault.default).createElement("h1", {
-    id: "title"
+    id: "title",
+    key: "h1"
 }, "heading 1 from parcel");
 const heading2 = /*#__PURE__*/ (0, _reactDefault.default).createElement("h2", {
-    id: "title2"
+    id: "title2",
+    key: "h2"
 }, "heading 2");
 const container = /*#__PURE__*/ (0, _reactDefault.default).createElement("div", {
     id: "container"
@@ -2958,6 +2960,7 @@ const container = /*#__PURE__*/ (0, _reactDefault.default).createElement("div", 
     heading,
     heading2
 ]);
+console.log(heading2, heading, container);
 const root = (0, _clientDefault.default).createRoot(document.getElementById("root"));
 root.render(container);
 

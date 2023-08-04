@@ -1,5 +1,14 @@
 #container {
-  background-color: #ff0;
+  color: #fff;
+  text-align: center;
+  background-color: green;
+  padding: 30px;
+}
+
+p {
+  text-align: center;
+  color: #00f;
+  font-size: 30px;
 }
 
 /*# sourceMappingURL=index.3a01df49.css.map */

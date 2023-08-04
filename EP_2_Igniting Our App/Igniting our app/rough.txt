@@ -1,0 +1,4 @@
+-> To start react project
+1. npm init
+   -> Initialize our project with nodejs.
+        i. give : package.json
