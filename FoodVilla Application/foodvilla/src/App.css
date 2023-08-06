@@ -48,8 +48,16 @@ main{
 .card{
   background-color: #9ED2BE;
   display: flex;
+  gap: 5px;
   flex-direction: column;
-  width: 200px;
+  width: 250px;
   padding: 10px;
+}
+
+.rating{
+  background-color: black;
+  color: white;
+  padding: 0 4px;
+  font-size: 12px;
 }
 /* Card css ends */
