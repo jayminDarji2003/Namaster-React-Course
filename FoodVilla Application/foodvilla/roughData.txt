@@ -1,0 +1,89 @@
+---> WAY 1 : Brute force
+---> Accessing the data from Object using Props
+
+-> access
+<Card restaurant={restaurantList[0]} />
+
+-> component
+function Card(props) {
+    return (
+        <div className="card">
+            <img src={props.restaurant.data?.imgUrl} alt="Image" />
+            <h3>{props.restaurant.data?.name}</h3>
+            <p>{props.restaurant.data?.cuisines.join(", ")}</p>
+            <p><span className="rating">{props.restaurant.data?.rating}</span> starts</p>
+        </div>
+    )
+}
+
+
+--> WAY 2 : Good Optimized
+--> Accessing the data from object using D-Structuring Object
+
+-> access
+<Card restaurant={restaurantList[0]} />
+
+-> component
+function Card({restaurant}) {
+    // console.log(props)
+    return (
+        <div className="card">
+            <img src={restaurant.data?.imgUrl} alt="Image" />
+            <h3>{restaurant.data?.name}</h3>
+            <p>{restaurant.data?.cuisines.join(", ")}</p>
+            <p><span className="rating">{restaurant.data?.rating}</span> starts</p>
+        </div>
+    )
+}
+
+
+--> WAY 3 : Better Optimized
+--> We can also D-Structuring object also
+
+-> access
+<Card restaurant={restaurantList[0]} />
+
+-> component
+function Card({ restaurant }) {
+    const { imgUrl, name, cuisines, rating } = restaurant.data;
+    return (
+        <div className="card">
+            <img src={imgUrl} alt="Image" />
+            <h3>{name}</h3>
+            <p>{cuisines.join(", ")}</p>
+            <p><span className="rating">{rating}</span> starts</p>
+        </div>
+    )
+}
+
+
+--> WAY 4 : VERY OPTIMIZED
+--> using spread operator send all the props
+
+-> access
+<Card {...restaurantList[0].data} />
+
+-> component
+function Card({ imgUrl, name, cuisines, rating }) {
+    return (
+        <div className="card">
+            <img src={imgUrl} alt="Image" />
+            <h3>{name}</h3>
+            <p>{cuisines.join(", ")}</p>
+            <p><span className="rating">{rating}</span> starts</p>
+        </div>
+    )
+}
+
+--> you can also optimize above component using map function
+function BodyComp() {
+  return (
+    <main>
+      {
+        restaurantList.map((restaurant) => {
+          return <Card {...restaurant.data} />;
+        })
+      }
+    </main>
+  )
+}

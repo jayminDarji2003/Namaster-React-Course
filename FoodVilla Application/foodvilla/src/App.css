@@ -13,7 +13,7 @@ header{
   justify-content: space-between;
   align-items: center;
   padding: 0 40px;
-  box-shadow: 0px 5px 5px rgb(219, 214, 214);
+  /* box-shadow: 0px 5px 5px rgb(219, 214, 214); */
 }
 
 .logo > a > img{
@@ -51,7 +51,13 @@ main{
   gap: 5px;
   flex-direction: column;
   width: 250px;
+  height: 300px;
   padding: 10px;
+  /* overflow: hidden; */
+}
+
+.card img{
+  height: 200px;
 }
 
 .rating{

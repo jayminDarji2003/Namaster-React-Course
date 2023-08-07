@@ -8,7 +8,7 @@ const restaurantList = [
     "type": "restaurant",
     "data": {
       "type": "F",
-      "id": "73011",
+      "id": "101",
       "name": "KFC",
       "city": "22",
       "area": "Anand Vihar Conony",
@@ -36,7 +36,7 @@ const restaurantList = [
     "type": "restaurant",
     "data": {
       "type": "F",
-      "id": "73011",
+      "id": "102",
       "name": "Subway",
       "city": "22",
       "area": "Himaliya mall vastrapur",
@@ -64,7 +64,7 @@ const restaurantList = [
     "type": "restaurant",
     "data": {
       "type": "F",
-      "id": "73011",
+      "id": "103",
       "name": "McDonald's",
       "city": "22",
       "area": "Anand Vihar Conony",
@@ -92,7 +92,7 @@ const restaurantList = [
     "type": "restaurant",
     "data": {
       "type": "F",
-      "id": "73011",
+      "id": "104",
       "name": "Burger King",
       "city": "22",
       "area": "Anand Vihar Conony",
@@ -120,8 +120,8 @@ const restaurantList = [
     "type": "restaurant",
     "data": {
       "type": "F",
-      "id": "73011",
-      "name": "Gwalia Sweets & Fast Food",
+      "id": "105",
+      "name": "Gwalia Sweets",
       "city": "22",
       "area": "Anand Vihar Conony",
       "rating": "4.5",
@@ -148,7 +148,7 @@ const restaurantList = [
     "type": "restaurant",
     "data": {
       "type": "F",
-      "id": "73011",
+      "id": "106",
       "name": "Vadilal Ice Creams",
       "city": "22",
       "area": "Anand Vihar Conony",
@@ -157,7 +157,7 @@ const restaurantList = [
       "cuisines": [
         "Ice Cream",
         "Desserts",
-        "Paldi & Marvadi"
+        "Rasgulla"
       ],
       "costForTwo": 3000,
       "deliveryTime": 31,
@@ -176,7 +176,7 @@ const restaurantList = [
     "type": "restaurant",
     "data": {
       "type": "F",
-      "id": "73011",
+      "id": "107",
       "name": "Starbucks Coffee",
       "city": "22",
       "area": "Anand Vihar Conony",
@@ -204,7 +204,7 @@ const restaurantList = [
     "type": "restaurant",
     "data": {
       "type": "F",
-      "id": "73011",
+      "id": "108",
       "name": "The Belgian Waffle",
       "city": "22",
       "area": "Anand Vihar Conony",
@@ -232,7 +232,7 @@ const restaurantList = [
     "type": "restaurant",
     "data": {
       "type": "F",
-      "id": "73011",
+      "id": "109",
       "name": "LunchBox - Meals and Thalis",
       "city": "22",
       "area": "Anand Vihar Conony",
@@ -260,7 +260,7 @@ const restaurantList = [
     "type": "restaurant",
     "data": {
       "type": "F",
-      "id": "73011",
+      "id": "110",
       "name": "Pizza Hut",
       "city": "22",
       "area": "Anand Vihar Conony",
@@ -288,7 +288,7 @@ const restaurantList = [
     "type": "restaurant",
     "data": {
       "type": "F",
-      "id": "73011",
+      "id": "111",
       "name": "Faasos - Wraps & Rolls",
       "city": "22",
       "area": "Anand Vihar Conony",
@@ -314,24 +314,16 @@ const restaurantList = [
   },
 ]
 
+
+
 function BodyComp() {
   return (
     <main>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      {
+        restaurantList.map((restaurant) => {
+          return <Card {...restaurant.data} />;
+        })
+      }
     </main>
   )
 }
