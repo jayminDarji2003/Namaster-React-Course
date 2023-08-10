@@ -9,8 +9,6 @@ function App() {
       <BodyComp/>
     </>
   )
-    
-  
 }
 
 export default App;

@@ -314,14 +314,12 @@ const restaurantList = [
   },
 ]
 
-
-
 function BodyComp() {
   return (
     <main>
       {
         restaurantList.map((restaurant) => {
-          return <Card {...restaurant.data} />;
+          return <Card {...restaurant.data} key={restaurant.data.id} />;
         })
       }
     </main>
