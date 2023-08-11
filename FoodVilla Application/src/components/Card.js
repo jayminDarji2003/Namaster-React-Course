@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 function Card({ imgUrl, name, cuisines, rating }) {
     return (
         <div className="card">
@@ -11,7 +10,6 @@ function Card({ imgUrl, name, cuisines, rating }) {
         </div>
     )
 }
-
 
 export default Card
 
