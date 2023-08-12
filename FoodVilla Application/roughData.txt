@@ -87,3 +87,99 @@ function BodyComp() {
     </main>
   )
 }
+
+
+
+best search component
+import React, { useState } from 'react';
+import '../App.css';
+import Card from './Card';
+import { restaurantList } from '../config';
+
+function capitalCase(text) {
+  const words = text.split(" ");
+  const capitalizedWords = words.map((word) =>
+    word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+  );
+  return capitalizedWords.join(" ");
+}
+
+function filterData(searchTxt, restaurants) {
+  if (!searchTxt.trim()) {
+    return restaurants;
+  }
+
+  const upperTxt = searchTxt.toUpperCase();
+  const lowerTxt = searchTxt.toLowerCase();
+  const capTxt = capitalCase(searchTxt);
+
+  const filteredRestaurants = restaurants.filter((restaurant) => {
+    const name = restaurant.data.name;
+    return (
+      name.includes(capTxt) || name.includes(upperTxt) || name.includes(lowerTxt)
+    );
+  });
+
+  return filteredRestaurants;
+}
+
+// ... (previous imports and code)
+
+function BodyComp() {
+  const [searchTxt, setSearchTxt] = useState("");
+  const [originalRestaurants] = useState(restaurantList);
+  const [filteredRestaurants, setFilteredRestaurants] = useState(originalRestaurants);
+
+  const handleSearch = () => {
+    const filteredData = filterData(searchTxt, originalRestaurants);
+    setFilteredRestaurants(filteredData);
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleSearch();
+    }
+  };
+
+  const handleBlur = () => {
+    if (!searchTxt.trim()) {
+      setFilteredRestaurants(originalRestaurants);
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const inputValue = e.target.value;
+    setSearchTxt(inputValue);
+
+    if (!inputValue.trim()) {
+      setFilteredRestaurants(originalRestaurants);
+    }
+  };
+
+  return (
+    <>
+      <div className='search-container'>
+        <input
+          type="text"
+          className='search-input'
+          placeholder='Search Any Restaurant'
+          value={searchTxt}
+          onChange={handleInputChange} // Call handleInputChange function on input change
+          onKeyPress={handleKeyPress}
+          onBlur={handleBlur}
+        />
+        <button onClick={handleSearch}>Search</button>
+      </div>
+
+      <div className='main'>
+        {filteredRestaurants.map((restaurant) => (
+          <Card {...restaurant.data} key={restaurant.data.id} />
+        ))}
+      </div>
+    </>
+  );
+}
+
+export default BodyComp;
+

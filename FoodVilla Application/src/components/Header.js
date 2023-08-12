@@ -17,6 +17,7 @@ function Header() {
                     <li>About</li>
                     <li>Contact</li>
                     <li>Cart</li>
+                    <li>Profile</li>
                 </ul>
             </div>
         </header>

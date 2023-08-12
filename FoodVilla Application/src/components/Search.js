@@ -1,35 +1,35 @@
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
+// import { restaurantList } from '../config'
 
-function Search() {
-    const [searchTxt, setSearchTxt] = useState("");
-    // we are creating a one state where the initial value is false and if the user clicked on search then do true to variable
-    const [isClicked, setIsClicked] = useState("false");
+// function Search() {
+//     const [searchTxt, setSearchTxt] = useState();
+//     const [restaurants, setRestaurants] = useState(restaurantList);
 
-    return (
-        <>
-            <div className='search-container'>
-                <form>
-                    <input
-                        type="text"
-                        className='search-input'
-                        placeholder='Search Any Restaurant'
-                        value={searchTxt}
-                        onChange={(e) => {
-                            // e.target.value --> input value
-                            setSearchTxt(e.target.value);
-                        }}
-                    />
-                </form>
+//     return (
+//         <>
+//             <div className='search-container'>
+//                 <form>
+//                     <input
+//                         type="text"
+//                         className='search-input'
+//                         placeholder='Search Any Restaurant'
+//                         value={searchTxt}
+//                         onChange={(e) => {
+//                             // e.target.value --> input value
+//                             setSearchTxt(e.target.value);
+//                         }}
+//                     />
+//                 </form>
 
-                <button onClick={() => {
-                    setIsClicked("true");
-                }}>
-                    Search
-                </button>
-            </div>
-        </>
+//                 <button onClick={() => {
+//                     // when user clicked on the search button then filter the Restaurant.
+//                 }}>
+//                     Search
+//                 </button>
+//             </div>
+//         </>
 
-    )
-}
+//     )
+// }
 
-export default Search
+// export default Search

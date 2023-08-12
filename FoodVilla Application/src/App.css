@@ -99,7 +99,7 @@ header {
 }
 
 
-.search-container form input {
+.search-container input {
   width: 500px;
   height: 40px;
   padding: 10px;
@@ -111,7 +111,7 @@ header {
   font-size: 20px;
 }
 
-.search-container form input::placeholder {
+.search-container input::placeholder {
   color: var(--bg-black);
   font-size: 15px;
 }
@@ -146,7 +146,7 @@ header {
     padding-top: 20px;
   }
 
-  .search-container form input {
+  .search-container input {
     width: 220px;
     height: 40px;
     font-size: 18px;
