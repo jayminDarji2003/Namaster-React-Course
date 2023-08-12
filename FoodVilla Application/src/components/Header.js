@@ -13,11 +13,17 @@ function Header() {
 
             <div className="navItems">
                 <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Contact</li>
-                    <li>Cart</li>
-                    <li>Profile</li>
+                    <li>
+                        <a href="/">
+                            <i className="fa-solid fa-cart-shopping cartIcon"></i>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/">
+                            <i className="fa-solid fa-user profileIcon" ></i>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </header>
