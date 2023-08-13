@@ -67,7 +67,8 @@ function BodyComp() {
 
 
   // ading search more fnx
-  // Inside the BodyComp component
+  // Inside the Body component
+  //
   const delayedSearch = debounce(handleSearch, 300); // Debounce the handleSearch function
 
   useEffect(() => {

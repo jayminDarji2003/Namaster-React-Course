@@ -1,12 +1,12 @@
 import './App.css';
-import BodyComp from './components/BodyComp';
+import Body from './components/Body';
 import Header from './components/Header';
 
 function App() {
   return (
     <>
       <Header/>
-      <BodyComp/>
+      <Body/>
     </>
   )
 }
