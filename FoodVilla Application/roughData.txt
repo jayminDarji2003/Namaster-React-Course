@@ -375,3 +375,13 @@ export default BodyComp;
 
 
 
+
+
+// about useEffect
+  /*
+    useEffect :-
+        -> if didn't pass [], then it call every time when page re-render
+        -> [] called once
+        -> [restaurants] , restaurants is a dependency and it useEffect calls when the restaurants chnges
+        -> useEffect call after the page load
+  */

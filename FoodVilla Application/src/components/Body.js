@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import '../App.css';
 import Card from './Card';
 import { restaurantList } from '../config';
+import Shimmer from './Shimmer';
 
 
 function filterData(searchTxt, restaurants) {
   const filterRes = restaurants.filter((restaurant) => {
-    return restaurant.data.name.toLowerCase().includes(searchTxt.toLowerCase());
+    return restaurant?.info?.name?.toLowerCase()?.includes(searchTxt?.toLowerCase());
   });
 
   return filterRes;
@@ -14,24 +15,38 @@ function filterData(searchTxt, restaurants) {
 
 
 function Body() {
-  const [restaurants, setRestaurants] = useState(restaurantList);
+  const [allRestaurants, setAllRestaurants] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchTxt, setSearchTxt] = useState("");
 
   useEffect(() => {
-    console.log("render useEffect")
-  }, [])
+    // api call here
+    getRestaurants();
+  }, []);
 
-  console.log("reder")
+  async function getRestaurants() {
+    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.022505&lng=72.5713621&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+    const json = await data.json();
 
-  /*
-    useEffect :-
-        -> if didn't pass [], then it call every time when page re-render
-        -> [] called once
-        -> [restaurants] , restaurants is a dependency and it useEffect calls when the restaurants chnges
-        -> useEffect call after the page load
-  */
+    setAllRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
-  return (
+  }
+
+
+  // not render component (Early return)
+  if (!allRestaurants) return null;
+
+  // filtered restaurants not found
+  if (filteredRestaurants?.length === 0) {
+    return (
+      <>
+        <h3>Please Enter Valid input!!</h3>
+      </>
+    )
+  }
+
+  return (filteredRestaurants.length === 0) ? <Shimmer /> : (
     <>
 
       {/* search component start here  */}
@@ -47,18 +62,17 @@ function Body() {
         />
         <button onClick={() => {
           // need to filter data 
-          const data = filterData(searchTxt, restaurants);
+          const data = filterData(searchTxt, allRestaurants);
           // update the state
-          setRestaurants(data);
+          setFilteredRestaurants(data);
         }}>Search</button>
       </div>
       {/* search component ends here  */}
 
-
       {/* main/body component start here  */}
       <div className='main'>
-        {restaurants.map((restaurant) => (
-          <Card {...restaurant.data} key={restaurant.data.id} />
+        {filteredRestaurants.map((restaurant) => (
+          <Card {...restaurant.info} key={restaurant.info.id} />
         ))}
       </div>
       {/* main/body component ends here  */}
