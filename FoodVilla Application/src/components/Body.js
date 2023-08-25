@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import '../App.css';
+import '../Assets/CSS/App.css'
 import Card from './Card';
 import Shimmer from './Shimmer';
 
@@ -18,17 +18,26 @@ function Body() {
   const [allRestaurants, setAllRestaurants] = useState([]);   // pass empty array
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);  // pass empty array
   const [searchTxt, setSearchTxt] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getRestaurants();
   }, []);
 
   async function getRestaurants() {
-    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.022505&lng=72.5713621&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-    const json = await data.json();
+    try {
+      const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.022505&lng=72.5713621&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+      const json = await data.json();
 
-    setAllRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    setFilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      setAllRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      setFilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+
+      setIsLoading(false);
+    }
+    catch (error) {
+      console.log("Error while fetching restaurant data.")
+      setIsLoading(false);
+    }
   }
 
   const handleInputChange = (e) => {
@@ -53,6 +62,12 @@ function Body() {
       handleSearch();
     }
   };
+
+
+  // Early return
+  if(!filterRestaurant){
+    return null;
+  }
 
 
   return (
@@ -82,7 +97,7 @@ function Body() {
       } */}
 
       {/* chatGPT give me this code  */}
-      {
+      {/* {
         allRestaurants.length > 0 ? (
           <div className='main'>
             {
@@ -93,9 +108,35 @@ function Body() {
             }
           </div>
         ) : (
-          <Shimmer /> 
+          <Shimmer />
+        )
+      } */}
+
+
+      {
+        isLoading ? <Shimmer /> : (
+          <div className='main'>
+            {
+              filteredRestaurants.length === 0 ? <h2>Opps!! - Enter valid input</h2> :
+                filteredRestaurants.map((restaurant) => (
+                  <Card {...restaurant.info} key={restaurant.info.id} />
+                ))
+            }
+          </div>
         )
       }
+
+
+      {/* {
+        isLoading ? (<Shimmer />) :
+          <div className='main'>
+            {
+              filteredRestaurants.length === 0 ? <h2>Please enter valid input</h2> :
+                filteredRestaurants.map((restaurant) => (
+                  <Card {...restaurant.info} key={restaurant.info.id} />
+                ))
+            }
+      } */}
 
 
     </>

@@ -1,7 +1,7 @@
-import "./ShimmerStyle.css";
+import "../Assets/CSS/ShimmerStyle.css";
 
 const ShimmerCard = () => {
-    const shimmerCardArray = Array.from({ length: 10 }, (_, index) => (
+    const shimmerCardArray = Array.from({ length: 10 }, (e, index) => (
         <div className="shimmer" key={index}>
             <div className="shimmer-card">
                 <div className="img"></div>
