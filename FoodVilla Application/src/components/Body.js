@@ -4,7 +4,7 @@ import Card from './Card';
 import Shimmer from './Shimmer';
 
 
-function filterData(searchTxt, restaurants) {
+function filterRestaurant(searchTxt, restaurants) {
   // filterRestaurants -> store array of objects of filtered restaurants.
   const filterRestaurants = restaurants.filter((restaurant) => {
     return restaurant?.info?.name?.toLowerCase()?.includes(searchTxt?.toLowerCase());
@@ -28,21 +28,32 @@ function Body() {
     const json = await data.json();
 
     setAllRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    // setFilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   }
 
+  const handleInputChange = (e) => {
+    const inputValue = e.target.value;
+    setSearchTxt(inputValue);
 
-  // not render component (Early return)
-  // if (!allRestaurants) return null;
+    if (!inputValue.trim()) {
+      setFilteredRestaurants(allRestaurants);
+    }
+  }
 
-  // filtered restaurants not found
-  // if (filteredRestaurants?.length === 0) {
-  //   return (
-  //     <>
-  //       <h3>Please Enter Valid input!!</h3>
-  //     </>
-  //   )
-  // }
+  const handleSearch = () => {
+    // need to filter data 
+    const data = filterRestaurant(searchTxt, allRestaurants);
+    // update the state
+    setFilteredRestaurants(data);
+  }
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleSearch();
+    }
+  };
+
 
   return (
     <>
@@ -54,28 +65,39 @@ function Body() {
           className='search-input'
           placeholder='Search Any Restaurant'
           value={searchTxt}
-          onChange={(e) => {
-            setSearchTxt(e.target.value);
-          }}
+          onKeyPress={handleKeyPress}
+          onChange={handleInputChange}
         />
-        <button onClick={() => {
-          // need to filter data 
-          const data = filterData(searchTxt, allRestaurants);
-          // update the state
-          setFilteredRestaurants(data);
-        }}>Search</button>
+        <button onClick={handleSearch}>Search</button>
       </div>
 
       {/* main/body component start here  */}
-      {
-        (allRestaurants && allRestaurants.length === 0) ? <Shimmer /> :
+      {/* {
+        (allRestaurants.length === 0) ? <Shimmer /> :
           <div className='main'>
-            {allRestaurants.map((restaurant) => (
+            {filteredRestaurants.map((restaurant) => (
               <Card {...restaurant.info} key={restaurant.info.id} />
             ))}
           </div>
+      } */}
+
+      {/* chatGPT give me this code  */}
+      {
+        allRestaurants.length > 0 ? (
+          <div className='main'>
+            {
+              filteredRestaurants.length === 0 ? <h2>Please enter valid input</h2> :
+                filteredRestaurants.map((restaurant) => (
+                  <Card {...restaurant.info} key={restaurant.info.id} />
+                ))
+            }
+          </div>
+        ) : (
+          <Shimmer /> 
+        )
       }
-      
+
+
     </>
   );
 }
