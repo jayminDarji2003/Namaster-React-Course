@@ -1,0 +1,48 @@
+.shimmer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    background-color: var(--bg-main);
+}
+
+.shimmer-card {
+    height: 350px;
+    width: 300px;
+    background-color: #f8ad9d;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.img {
+    height: 200px;
+    background-color: #caffbf;
+}
+
+.card-info {
+    margin-top: 10px;
+    display: flex;
+    margin-left: 10px;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.info-shm {
+    height: 30px;
+    background-color: #dee2ff;
+    border-radius: 10px;
+}
+
+.name {
+    width: 60%;
+}
+
+.cuisines {
+    width: 90%;
+}
+
+.rating {
+    width: 30%;
+}

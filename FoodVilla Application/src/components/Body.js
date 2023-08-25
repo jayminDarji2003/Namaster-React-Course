@@ -1,52 +1,50 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../App.css';
-import Card from './Card'; 
-import { restaurantList } from '../config';
+import Card from './Card';
 import Shimmer from './Shimmer';
 
 
 function filterData(searchTxt, restaurants) {
-  const filterRes = restaurants.filter((restaurant) => {
+  // filterRestaurants -> store array of objects of filtered restaurants.
+  const filterRestaurants = restaurants.filter((restaurant) => {
     return restaurant?.info?.name?.toLowerCase()?.includes(searchTxt?.toLowerCase());
   });
 
-  return filterRes;
+  return filterRestaurants;
 }
 
 
 function Body() {
-  const [allRestaurants, setAllRestaurants] = useState([]);
-  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+  const [allRestaurants, setAllRestaurants] = useState([]);   // pass empty array
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);  // pass empty array
   const [searchTxt, setSearchTxt] = useState("");
 
-useEffect(() => {
-  // api call here
-  getRestaurants();
-}, []);
+  useEffect(() => {
+    getRestaurants();
+  }, []);
 
-async function getRestaurants() {
-  const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.022505&lng=72.5713621&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-  const json = await data.json();
+  async function getRestaurants() {
+    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.022505&lng=72.5713621&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+    const json = await data.json();
 
-  setAllRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-  setFilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-
-}
+    setAllRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    // setFilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+  }
 
 
   // not render component (Early return)
-  if (!allRestaurants) return null;
+  // if (!allRestaurants) return null;
 
   // filtered restaurants not found
-  if (filteredRestaurants?.length === 0) {
-    return (
-      <>
-        <h3>Please Enter Valid input!!</h3>
-      </>
-    )
-  }
+  // if (filteredRestaurants?.length === 0) {
+  //   return (
+  //     <>
+  //       <h3>Please Enter Valid input!!</h3>
+  //     </>
+  //   )
+  // }
 
-  return (filteredRestaurants.length === 0) ? <Shimmer /> : (
+  return (
     <>
 
       {/* search component start here  */}
@@ -67,16 +65,17 @@ async function getRestaurants() {
           setFilteredRestaurants(data);
         }}>Search</button>
       </div>
-      {/* search component ends here  */}
 
       {/* main/body component start here  */}
-      <div className='main'>
-        {filteredRestaurants.map((restaurant) => (
-          <Card {...restaurant.info} key={restaurant.info.id} />
-        ))}
-      </div>
-      {/* main/body component ends here  */}
-
+      {
+        (allRestaurants && allRestaurants.length === 0) ? <Shimmer /> :
+          <div className='main'>
+            {allRestaurants.map((restaurant) => (
+              <Card {...restaurant.info} key={restaurant.info.id} />
+            ))}
+          </div>
+      }
+      
     </>
   );
 }
