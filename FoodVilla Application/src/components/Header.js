@@ -13,7 +13,7 @@ function Header() {
     return (
         <header>
             <div className="logo">
-                <Link to={App}>
+                <Link to="/">
                     <img src={logo} alt="Logo" />
                 </Link>
             </div>
@@ -21,29 +21,29 @@ function Header() {
             <div className="navItems">
                 <ul>
                     <li>
-                        <Link to={App}>
-                            <i class="fa-solid fa-house home"></i>
+                        <Link to="/">
+                            <i className="fa-solid fa-house home"></i>
                         </Link>
                     </li>
 
                     <li>
-                        <Link to={Cart}>
+                        <Link to="/cart">
                             <i className="fa-solid fa-cart-shopping cartIcon"></i>
                         </Link>
                     </li>
 
                     <li>
-                        <Link to={Profile}>
+                        <Link to="/profile">
                             <i className="fa-solid fa-user profileIcon" ></i>
                         </Link>
                     </li>
 
                     <li>
-                        <Link to={Authentication}>
+                        <Link to="/Authentication">
                             {
                                 (isLogedIn) ?
-                                    <i class="fa-solid fa-share-from-square authenticationIcon"></i> :
-                                    <i class="fa-solid fa-reply-all authenticationIcon"></i>
+                                    <i className="fa-solid fa-share-from-square authenticationIcon"></i> :
+                                    <i className="fa-solid fa-reply-all authenticationIcon"></i>
                             }
                         </Link>
                     </li>

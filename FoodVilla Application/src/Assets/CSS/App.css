@@ -185,12 +185,13 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--bg-secondary);
+  background-color: rgb(188, 181, 181);
 }
 
 .footer p {
   font-size: 25px;
-  color: var(--bg-white);
+  color: var(--bg-black);
+  font-weight: 700;
 }
 
 /* footer style ends */
