@@ -1,4 +1,5 @@
-export const IMG_CDN_URL = "https://www.thetechoutlook.com/wp-content/uploads/2020/08/THE-KFC-SUPER-7-DAYS-ARE-HERE.jpg";
+// export const IMG_CDN_URL = "https://www.thetechoutlook.com/wp-content/uploads/2020/08/THE-KFC-SUPER-7-DAYS-ARE-HERE.jpg";
+export const IMG_CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
 export const restaurantList = [
   {
