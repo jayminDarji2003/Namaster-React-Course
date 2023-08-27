@@ -15,6 +15,11 @@ body {
   color: var(--bg-black);
 }
 
+*::selection{
+  background: #3d9b6d;
+  color: white;
+}
+
 :root {
   --bg-primary: #9ED2BE;
   --bg-white: #fff;
