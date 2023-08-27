@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import loader from "../Assets/Images/loader_gif.gif"
 import "../Assets/CSS/RestaurantMenu.css"
+import discountImg from "../Assets/Images/discountImg.png"
 
 const RestaurantMenu = () => {
     const { resId } = useParams();
@@ -62,26 +63,25 @@ const RestaurantMenu = () => {
                                     </div>
 
                                     <div className="resAddress">
-                                        <h4>Restaurant Address : </h4>
-                                        <p className="address"> -  {restaurantDetail?.locality} , {restaurantDetail?.areaName} </p>
+                                        <h4>Restaurant Address :-  </h4>
+                                        <p className="address"> {restaurantDetail?.locality} , {restaurantDetail?.areaName} </p>
                                     </div>
                                 </section>
 
                                 <hr />
 
                                 <section className="offers">
+
                                     <div className="offerContainer">
-                                        <p className="offerPara">FLAT DEAL</p>
-                                        <div className="offerDetail">
-                                            <div>
-                                                <i class="fa-solid fa-tag"></i>
-                                            </div>
-
-                                            <div>
-
-                                            </div>
-                                        </div>
+                                        <img src={discountImg} alt="discount image" />
+                                        <h4>{restaurantDetail?.aggregatedDiscountInfo?.descriptionList[0]?.meta}</h4>
                                     </div>
+
+                                    <div className="offerContainer">
+                                        <img src={discountImg} alt="discount image" />
+                                        <h4>{restaurantDetail?.aggregatedDiscountInfo?.descriptionList[1]?.meta}</h4>
+                                    </div>
+
                                 </section>
 
                             </main>

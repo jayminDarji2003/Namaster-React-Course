@@ -33,6 +33,7 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    height: 13vh;
 }
 
 .resData {
@@ -123,35 +124,35 @@
 
 /* offer section start  */
 
-.offers{
+.offers {
     margin: 15px 0;
     display: flex;
-    /* border: 1px solid #e9e9eb; */
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.offerContainer {
     border: 3px solid black;
-    width: 200px;
-    height: 100%;
+    height: 70px;
+    width: 450px;
     padding: 8px;
     border-radius: 8px;
-}
-
-.offerContainer{
     display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
-.offerPara{
-    font-weight: 600;
-    font-size: .7rem;
-    writing-mode: vertical-lr;
-    transform: rotate(180deg);
-    text-align: center;
-    color: #E46D47;
-    border-left: 3px solid black;
-    padding-left: 4px;
+.offerContainer img {
+   height: 30px;
+   /* border-right: 2px solid black; */
+   padding-right: 8px;
 }
 
-.offerDetail{
+.offerContainer h4{
     margin-left: 8px;
 }
+
 
 /* offer section ends  */
 
@@ -159,9 +160,29 @@
 
 /* Media query  */
 @media only screen and (max-width: 600px) {
-    .restaurantContainer{
+    .restaurantDetails{
+        height: 17vh;
+    }
+    .restaurantContainer {
         border: none;
         width: 100vw;
         padding: 30px;
+    }
+
+    .deliveryData {
+        justify-content: center;
+    }
+
+    .resAddress{
+        flex-direction: column;
+    }
+
+    .offerContainer{
+        width: 320px;
+    }
+
+    .offers{
+        flex-direction: column;
+        gap: 10px;
     }
 }
