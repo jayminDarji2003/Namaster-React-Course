@@ -1,0 +1,221 @@
+"info": {
+              "id": "52630",
+              "name": "McDonald's",
+              "city": "Ahmedabad",
+              "slugs": {
+                "restaurant": "mcdonalds-city-gold-multiplex-ashram-road-navrangpura",
+                "city": "ahmedabad"
+              },
+              "uniqueId": "c0d944d0-9dc4-40b6-bb90-8979dca113c7",
+              "cloudinaryImageId": "ee5f8e06b300efc07c9fe3f4df40dfc4",
+              "locality": "City Gold Multiplex, Ashram Road",
+              "areaName": "Navrangpura",
+              "costForTwo": "40000",
+              "costForTwoMessage": "₹400 for two",
+              "cuisines": [
+                "Burgers",
+                "Beverages"
+              ],
+              "avgRating": 4.2,
+              "feeDetails": {
+                "restaurantId": "52630",
+                "fees": [
+                  {
+                    "name": "distance",
+                    "fee": 3000
+                  },
+                  {
+                    "name": "time"
+                  },
+                  {
+                    "name": "special"
+                  }
+                ],
+                "totalFee": 3000,
+                "title": "Delivery Charge",
+                "amount": "3000"
+              },
+              "parentId": "630",
+              "avgRatingString": "4.2",
+              "totalRatingsString": "10K+ ratings",
+              "sla": {
+                "restaurantId": "52630",
+                "deliveryTime": 17,
+                "minDeliveryTime": 17,
+                "maxDeliveryTime": 17,
+                "lastMileTravel": 1.7,
+                "serviceability": "SERVICEABLE",
+                "stressFactor": 0.75218654,
+                "rainMode": "RAIN_MODE_NONE",
+                "longDistance": "LONG_DISTANCE_NOT_LONG_DISTANCE",
+                "zoneId": 368,
+                "slaString": "17 MINS",
+                "lastMileTravelString": "1.7 km",
+                "iconType": "ICON_TYPE_EMPTY"
+              },
+              "availability": {
+                "nextCloseTime": "2023-08-28 01:45:00",
+                "visibility": true,
+                "opened": true,
+                "restaurantClosedMeta": {
+                  
+                }
+              },
+              "aggregatedDiscountInfo": {
+                "header": "10% off",
+                "shortDescriptionList": [
+                  {
+                    "meta": "10% off | Use PARTY",
+                    "discountType": "Percentage",
+                    "operationType": "RESTAURANT"
+                  },
+                  {
+                    "discountType": "Percentage",
+                    "operationType": "RESTAURANT"
+                  }
+                ],
+                "descriptionList": [
+                  {
+                    "meta": "10% off | Use code PARTY",
+                    "discountType": "Percentage",
+                    "operationType": "RESTAURANT"
+                  },
+                  {
+                    "meta": "40% off up to ₹120 | Use AXIS40 Above ₹200",
+                    "discountType": "Percentage",
+                    "operationType": "RESTAURANT"
+                  }
+                ],
+                "visible": true
+              },
+              "badges": {
+                
+              },
+              "slugString": "mcdonalds-city-gold-multiplex-ashram-road-navrangpura",
+              "multiOutlet": true,
+              "isOpen": true,
+              "labels": [
+                {
+                  "title": "Timings",
+                  "message": "null"
+                },
+                {
+                  "title": "Address",
+                  "message": "City Gold Multiplex, Ground Floor, Ashram Road, Ahmedabad 380009."
+                },
+                {
+                  "title": "Cuisines",
+                  "message": "Burgers,Beverages"
+                }
+              ],
+              "logo": "ygzpacvdpquemhj77imr",
+              "totalRatings": 10000,
+              "aggregatedDiscountInfoV2": {
+                "header": "10% off",
+                "shortDescriptionList": [
+                  {
+                    "meta": "10% off | Use PARTY",
+                    "discountType": "Percentage",
+                    "operationType": "RESTAURANT"
+                  },
+                  {
+                    "discountType": "Percentage",
+                    "operationType": "RESTAURANT"
+                  }
+                ],
+                "descriptionList": [
+                  {
+                    "meta": "10% off | Use code PARTY",
+                    "discountType": "Percentage",
+                    "operationType": "RESTAURANT"
+                  },
+                  {
+                    "meta": "40% off up to ₹120 | Use AXIS40 Above ₹200",
+                    "discountType": "Percentage",
+                    "operationType": "RESTAURANT"
+                  }
+                ],
+                "couponDetailsCta": "View coupon details"
+              },
+              "type": "F",
+              "nudgeBanners": [
+                {
+                  "minValue": 699,
+                  "maxValue": 999,
+                  "priority": 1,
+                  "couponCode": "PARTY",
+                  "discountInfo": {
+                    "discountType": "Percentage",
+                    "value": 10
+                  },
+                  "lockedMessage": "Add items worth ₹<amount> to unlock flat 10% off | Code PARTY",
+                  "unlockedMessage": "PARTY Coupon Unlocked! Use it to save flat 10% off",
+                  "logoCtx": {
+                    
+                  }
+                }
+              ],
+              "headerBanner": {
+                "url": "swiggy://webview?is_external=false&webview_url=https://www.swiggy.com/restaurant-info/52630"
+              },
+              "expectationNotifiers": [
+                {
+                  "icon": {
+                    
+                  },
+                  "popup": {
+                    "cta": {
+                      
+                    }
+                  },
+                  "type": "DISTANCE_FEE_NON_FOOD_LM",
+                  "halfCardPopup": {
+                    "halfCardPopupHeader": {
+                      
+                    }
+                  }
+                }
+              ],
+              "generalPurposeInfoListV2": [
+                {
+                  "cta": {
+                    "info": {
+                      "recordings": {
+                        
+                      }
+                    },
+                    "linkCta": {
+                      
+                    }
+                  }
+                }
+              ],
+              "ratingSlab": "RATING_SLAB_5",
+              "orderabilityCommunication": {
+                "title": {
+                  
+                },
+                "subTitle": {
+                  
+                },
+                "message": {
+                  
+                },
+                "customIcon": {
+                  
+                }
+              },
+              "hasBestsellerItems": true,
+              "cartOrderabilityNudgeBanner": {
+                "parameters": {
+                  
+                },
+                "presentation": {
+                  
+                }
+              },
+              "latLong": "23.03178,72.57015"
+            },
+            "analytics": {
+              
+            }

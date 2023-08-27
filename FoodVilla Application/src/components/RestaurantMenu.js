@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { IMG_CDN_URL } from "../config";
 import loader from "../Assets/Images/loader_gif.gif"
 import "../Assets/CSS/RestaurantMenu.css"
-
-// Call API :- 
-// https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.022505&lng=72.5713621&restaurantId={id}&catalog_qa=undefined&submitAction=ENTER
 
 const RestaurantMenu = () => {
     const { resId } = useParams();
@@ -18,24 +14,20 @@ const RestaurantMenu = () => {
 
     async function getRestaurantInfo() {
         try {
-            // const response = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.022505&lng=72.5713621&restaurantId=52630&catalog_qa=undefined&submitAction=ENTER");
-
             const response = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.022505&lng=72.5713621&restaurantId=" + resId + "&catalog_qa=undefined&submitAction=ENTER");
 
             const resData = await response.json();
             setRestaurantInfo(resData);
             setIsLoading(false);
-            console.log(resData.data.cards[0].card.card.info.name);
-            console.log("data fatch successfully");
-            // console.table(resData);
         }
         catch (error) {
-            console.error("Error occure while fetching data", error);
-            console.log(resId);
+            console.error("Error occurred while fetching data", error);
             setIsLoading(false);
         }
     }
 
+    // Extract id, name, and avgRating from the object
+    const restaurantDetail = restaurantInfo.data?.cards[0]?.card?.card?.info || {};
 
     return (
         <>
@@ -46,15 +38,54 @@ const RestaurantMenu = () => {
                             <img className="menuLoader" src={loader} alt="loader image" />
                         </div>
                     ) : (
-                        <div>
-                            <img width={"200px"} src={IMG_CDN_URL + restaurantInfo.data.cards[0].card.card.info.cloudinaryImageId} alt="image is not able to see." />
-                            <h1>Restaurant id: {restaurantInfo.data.cards[0].card.card.info.id}</h1>
-                            <h3>Restaurant name is : {restaurantInfo.data.cards[0].card.card.info.name} </h3>
-                            <h3>Restaurant rating is : {restaurantInfo.data.cards[0].card.card.info.avgRating} </h3>
-                            <h3>Restaurant locality is : {restaurantInfo.data.cards[0].card.card.info.locality} </h3>
-                            <h3>Restaurant city is : {restaurantInfo.data.cards[0].card.card.info.city} </h3>
-                            <h3>Restaurant cuisines is : {restaurantInfo.data.cards[0].card.card.info.cuisines.join(", ")} </h3>
-                        </div>
+                        <>
+                            <main className="restaurantContainer">
+                                <section className="restaurantDetails">
+                                    <div className="resData">
+                                        <h2>{restaurantDetail?.name}</h2>
+                                        <p>{restaurantDetail?.labels[2]?.message}</p>
+                                        <p>{restaurantDetail?.areaName} , {restaurantDetail?.sla?.lastMileTravelString} </p>
+                                    </div>
+                                    <div className="ratingData">
+                                        <p className="firstPara"><i className="fa-solid fa-star star"></i> {restaurantDetail.avgRating} </p>
+                                        <hr className="newHr" />
+                                        <p className="ratingCount">{restaurantDetail.totalRatingsString}</p>
+                                    </div>
+                                </section>
+
+                                <hr />
+
+                                <section className="restOtherDetails">
+                                    <div className="deliveryData">
+                                        <h4><i class="fa-solid fa-clock"></i> {restaurantDetail?.sla?.slaString}</h4>
+                                        <h4><i class="fa-solid fa-indian-rupee-sign ruppeIcon"></i> {restaurantDetail?.costForTwoMessage}</h4>
+                                    </div>
+
+                                    <div className="resAddress">
+                                        <h4>Restaurant Address : </h4>
+                                        <p className="address"> -  {restaurantDetail?.locality} , {restaurantDetail?.areaName} </p>
+                                    </div>
+                                </section>
+
+                                <hr />
+
+                                <section className="offers">
+                                    <div className="offerContainer">
+                                        <p className="offerPara">FLAT DEAL</p>
+                                        <div className="offerDetail">
+                                            <div>
+                                                <i class="fa-solid fa-tag"></i>
+                                            </div>
+
+                                            <div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                            </main>
+                        </>
                     )
             }
         </>
@@ -62,20 +93,3 @@ const RestaurantMenu = () => {
 }
 
 export default RestaurantMenu;
-
-
-
-
-
-
-
-
-
-// id - 70177
-// https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.022505&lng=72.5713621&restaurantId=70177&catalog_qa=undefined&submitAction=ENTER
-
-// id - 653663
-// https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.022505&lng=72.5713621&restaurantId=653663&catalog_qa=undefined&submitAction=ENTER
-
-// id - 147742
-// https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.022505&lng=72.5713621&restaurantId=147742&catalog_qa=undefined&submitAction=ENTER

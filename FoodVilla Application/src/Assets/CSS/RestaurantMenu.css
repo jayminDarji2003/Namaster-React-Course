@@ -1,3 +1,5 @@
+/* loader start  */
+
 .loaderContainer {
     display: flex;
     justify-content: center;
@@ -8,4 +10,158 @@
 .loaderContainer img {
     width: 150px;
     height: 150px;
+}
+
+/* loader end */
+
+
+/* main section start  */
+
+.restaurantContainer {
+    border: 1px solid black;
+    border-top: none;
+    width: 70vw;
+    margin: auto;
+    padding: 50px;
+}
+
+/* main section end  */
+
+
+/* restaurant details start  */
+.restaurantDetails {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.resData {
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.resData h2 {
+    margin-bottom: 5px;
+}
+
+.resData p {
+    font-size: 14px;
+    /* font-weight: 600; */
+    color: #7e808c;
+}
+
+
+.ratingData {
+    /* margin-top: 20px; */
+    border: 3px solid black;
+    border-radius: 20px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    padding: 20px;
+}
+
+.firstPara {
+    font-size: 20px;
+    font-weight: 900;
+    color: #3d9b6d;
+}
+
+.star {
+    color: #3d9b6d;
+}
+
+.newHr {
+    width: 90%;
+}
+
+.ratingCount {
+    font-size: 10px;
+    font-weight: 600;
+}
+
+/* restaurant details start  */
+
+
+/* delivery details start  */
+
+.restOtherDetails {
+    margin: 20px 0;
+}
+
+.deliveryData {
+    display: flex;
+    gap: 20px;
+}
+
+.ruppeIcon {
+    font-size: 12px;
+    border: 3px solid black;
+    padding: 3px;
+    border-radius: 50%;
+}
+
+.resAddress {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    /* background-color: red; */
+}
+
+.address {
+    color: #7e808c;
+    font-size: 14px;
+}
+
+/* delivery details ends */
+
+
+/* offer section start  */
+
+.offers{
+    margin: 15px 0;
+    display: flex;
+    /* border: 1px solid #e9e9eb; */
+    border: 3px solid black;
+    width: 200px;
+    height: 100%;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.offerContainer{
+    display: flex;
+}
+
+.offerPara{
+    font-weight: 600;
+    font-size: .7rem;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    text-align: center;
+    color: #E46D47;
+    border-left: 3px solid black;
+    padding-left: 4px;
+}
+
+.offerDetail{
+    margin-left: 8px;
+}
+
+/* offer section ends  */
+
+
+
+/* Media query  */
+@media only screen and (max-width: 600px) {
+    .restaurantContainer{
+        border: none;
+        width: 100vw;
+        padding: 30px;
+    }
 }
