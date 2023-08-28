@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import loader from "../Assets/Images/loader_gif.gif"
 import "../Assets/CSS/RestaurantMenu.css"
 import discountImg from "../Assets/Images/discountImg.png"
+import { Link } from "react-router-dom"
 
 const RestaurantMenu = () => {
     const { resId } = useParams();
@@ -84,16 +85,8 @@ const RestaurantMenu = () => {
 
                             </main>
 
-                            <section className="searchBox">
-                                <section className="searchContainer">
-                                    <input type="text" placeholder="search your favourite item" />
-                                    <i className="fa-brands fa-searchengin searchIcon"></i>
-                                </section>
-                            </section>
-
-
-                            <section className="restaurantProductsList">
-                                this restaurant product data
+                            <section className="checkOutItem">
+                                <Link to={`/restaurant/${resId}/food`}>Check Out Food</Link>
                             </section>
                         </>
                     )
@@ -103,3 +96,6 @@ const RestaurantMenu = () => {
 }
 
 export default RestaurantMenu;
+
+
+

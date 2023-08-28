@@ -164,70 +164,25 @@
 
 /* offer section ends  */
 
+/* button food start  */
 
-
-/* search section start here  */
-
-.searchBox {
-    /* background-color: #3d9b6d; */
-    margin: 40px 0 25px 0;
-    position: sticky;
-    top: 60px;
-}
-
-.searchContainer {
+.checkOutItem{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    margin: auto;
-    padding: 20px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
-    width: 50vw;
-    border-radius: 30px;
+    margin: 60px;
     background-color: #3d9b6d;
-}
-
-.searchContainer input {
-    width: 45vw;
-    height: 40px;
-    background: transparent;
-    border-radius: 10px;
-    outline: none;
-    border: 2px solid white;
-    padding-left: 10px;
-    font-size: 17px;
-    color: white;
+    width: 200px;
+    margin: auto;
+    margin-top: 60px;
+    height: 50px;
+    border-radius: 30px;
+    font-size: 18px;
     font-weight: 700;
 }
 
-.searchContainer input::placeholder {
-    color: white;
-}
 
-
-.searchIcon {
-    color: white;
-    font-size: 30px;
-    cursor: pointer;
-}
-
-/* search section ends here */
-
-
-/* restaurant product card section start here  */
-
-.restaurantProductsList {
-    width: 70vw;
-    height: 100vh;
-    display: flex;
-    margin: auto;
-    /* margin-top: 40px; */
-    border-top: 10px solid #3d9b6d;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
-}
-
-/* restaurant product card section ends here */
-
+/* button food end */
 
 
 
