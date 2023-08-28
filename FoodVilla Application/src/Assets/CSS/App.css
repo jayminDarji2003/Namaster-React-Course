@@ -42,7 +42,8 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0 40px;
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+  /* box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25); */
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
   position: sticky;
   top: 0px;
 }
@@ -59,6 +60,15 @@ header {
   gap: 25px;
   cursor: pointer;
 }
+
+.linkContainer{
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2px;
+}
+
 
 .cartIcon,
 .home {
@@ -77,6 +87,12 @@ header {
 .authenticationIcon {
   color: var(--bg-secondary);
   font-size: 25px;
+}
+
+.linkContainer:hover{
+  border-bottom: 5px solid #3d9b6d;
+  margin-top: 5px;
+  border-radius: 4px;
 }
 
 .cartIcon:hover,
@@ -233,5 +249,16 @@ header {
     color: var(--bg-black);
     height: 40px;
     font-size: 15px;
+  }
+
+  .linkContainer p{
+    display: none;
+    border: none;
+  }
+
+  .linkContainer:hover{
+    border: none;
+    margin: 0;
+    border-radius: 0;
   }
 }
