@@ -107,7 +107,6 @@ import Authentication from './components/Authentication';
 import Error from './components/Error';
 import Body from './components/Body';
 import RestaurantMenu from './components/RestaurantMenu';
-import RestaurantFoodMenu from './components/RestaurantFoodMenu';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -120,7 +119,6 @@ root.render(
           <Route path="/cart" element={<Cart />} />
           <Route path="/authentication" element={<Authentication />} />
           <Route path="/restaurant/:resId" element={<RestaurantMenu />} />
-          <Route path="/restaurant/:resId/food" element={<RestaurantFoodMenu />} />
           <Route path="*" element={<Error />} />
         </Route>
       </Routes>

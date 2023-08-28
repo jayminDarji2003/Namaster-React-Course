@@ -78,15 +78,18 @@ const RestaurantMenu = () => {
                                     </div>
 
                                     <div className="offerContainer">
-                                        <img src={discountImg} alt="discount image" />
+                                        <img src={discountImg} alt="discountt image" />
                                         <h4>{restaurantDetail?.aggregatedDiscountInfo?.descriptionList[1]?.meta}</h4>
                                     </div>
                                 </section>
 
                             </main>
 
-                            <section className="checkOutItem">
-                                <Link to={`/restaurant/${resId}/food`}>Check Out Food</Link>
+                            <section className="restaurantProductsList">
+                                <h2>{restaurantDetail?.name}</h2>
+
+                                <h1 className="text-primary">bootstrap added</h1>
+
                             </section>
                         </>
                     )

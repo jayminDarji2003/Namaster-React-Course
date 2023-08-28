@@ -4,7 +4,7 @@ import img from "../Assets/Images/login_gif.gif"
 const Authentication = () => {
     return (
         <>
-            <div className="container">
+            <div className="Outercontainer">
                 <img className="gifImg" src={img} alt="Log in image" />
                 <h2>Authentication Require.</h2>
                 <p>You are now LogedIn ❤️</p>
