@@ -25,21 +25,39 @@ function Body() {
     getRestaurants();
   }, []);
 
-  async function getRestaurants() {
-    try {
-      const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.022505&lng=72.5713621&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-      const json = await data.json();
+  // async function getRestaurants() {
+  //   try {
+  //     const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.022505&lng=72.5713621&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+  //     const json = await data.json();
 
-      setAllRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-      setFilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+  //     setAllRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+  //     setFilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
-      setIsLoading(false);
-    }
-    catch (error) {
-      console.log("Error while fetching restaurant data.")
-      setIsLoading(false);
-    }
+  //     setIsLoading(false);
+  //   }
+  //   catch (error) {
+  //     console.log("Error while fetching restaurant data.")
+  //     setIsLoading(false);
+  //   }
+  // }
+
+
+  function getRestaurants() {
+    fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.022505&lng=72.5713621&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
+      .then(response => response.json())
+      .then(json => {
+        const restaurantsData = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+        setAllRestaurants(restaurantsData);
+        setFilteredRestaurants(restaurantsData);
+        setIsLoading(false);
+      })
+      .catch(error => {
+        console.log("Error while fetching restaurant data:", error);
+        setIsLoading(false);
+      });
   }
+
+
 
   const handleInputChange = (e) => {
     const inputValue = e.target.value;
@@ -70,11 +88,8 @@ function Body() {
     return null;
   }
 
-
   return (
     <>
-
-      {/* search component start here  */}
       <div className='search-container'>
         <input
           type="text"
@@ -87,61 +102,21 @@ function Body() {
         <button onClick={handleSearch}>Search</button>
       </div>
 
-      {/* main/body component start here  */}
-      {/* {
-        (allRestaurants.length === 0) ? <Shimmer /> :
-          <div className='main'>
-            {filteredRestaurants.map((restaurant) => (
-              <Card {...restaurant.info} key={restaurant.info.id} />
-            ))}
-          </div>
-      } */}
-
-      {/* chatGPT give me this code  */}
-      {/* {
-        allRestaurants.length > 0 ? (
-          <div className='main'>
-            {
-              filteredRestaurants.length === 0 ? <h2>Please enter valid input</h2> :
-                filteredRestaurants.map((restaurant) => (
-                  <Card {...restaurant.info} key={restaurant.info.id} />
-                ))
-            }
-          </div>
-        ) : (
-          <Shimmer />
-        )
-      } */}
-
-
       {
         isLoading ? <Shimmer /> : (
           <div className='main'>
-            {
-              filteredRestaurants.length === 0 ? <h2>Opps!! - Enter valid input</h2> :
-                filteredRestaurants.map((restaurant) => (
-                  <Link to={"/restaurant/" + restaurant.info.id}>
-                    <Card {...restaurant.info} key={restaurant.info.id} />
-                  </Link>
-                ))
-
+            {filteredRestaurants.length === 0 ? (
+              <h2>Oops!! - Enter valid input</h2>
+            ) :
+              filteredRestaurants.map((restaurant) => (
+                <Link to={"/restaurant/" + restaurant.info.id} key={restaurant.info.id}>
+                  <Card {...restaurant.info} />
+                </Link>
+              ))
             }
           </div>
         )
       }
-
-
-      {/* {
-        isLoading ? (<Shimmer />) :
-          <div className='main'>
-            {
-              filteredRestaurants.length === 0 ? <h2>Please enter valid input</h2> :
-                filteredRestaurants.map((restaurant) => (
-                  <Card {...restaurant.info} key={restaurant.info.id} />
-                ))
-            }
-      } */}
-
 
     </>
   );

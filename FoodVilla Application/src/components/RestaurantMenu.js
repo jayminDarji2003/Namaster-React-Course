@@ -58,8 +58,8 @@ const RestaurantMenu = () => {
 
                                 <section className="restOtherDetails">
                                     <div className="deliveryData">
-                                        <h4><i class="fa-solid fa-clock"></i> {restaurantDetail?.sla?.slaString}</h4>
-                                        <h4><i class="fa-solid fa-indian-rupee-sign ruppeIcon"></i> {restaurantDetail?.costForTwoMessage}</h4>
+                                        <h4><i className="fa-solid fa-clock"></i> {restaurantDetail?.sla?.slaString}</h4>
+                                        <h4><i className="fa-solid fa-indian-rupee-sign ruppeIcon"></i> {restaurantDetail?.costForTwoMessage}</h4>
                                     </div>
 
                                     <div className="resAddress">
@@ -87,7 +87,7 @@ const RestaurantMenu = () => {
 
                             <section className="searchContainer">
                                 <input type="text" placeholder="search your favourite item"/>
-                                <i class="fa-brands fa-searchengin searchIcon"></i>
+                                <i className="fa-brands fa-searchengin searchIcon"></i>
                             </section>
 
 
