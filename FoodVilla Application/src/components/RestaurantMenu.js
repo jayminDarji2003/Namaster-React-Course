@@ -90,9 +90,9 @@ const RestaurantMenu = () => {
                             </main>
 
                             <section className="restaurantProductsList">
-                                <h3>{restaurantMenuDetail.name}</h3>
-                                <h4>{restaurantMenuDetail.description}</h4>
-                                <img src={IMG_URL + restaurantMenuDetail.imageId} alt="image is here" />
+                                <h3>{restaurantMenuDetail?.name}</h3>
+                                <h4>{restaurantMenuDetail?.description}</h4>
+                                <img src={IMG_URL + restaurantMenuDetail?.imageId} alt="image is here" />
                             </section>
                         </>
                     )

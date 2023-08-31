@@ -216,6 +216,7 @@ header {
   justify-content: center;
   align-items: center;
   background-color: rgb(188, 181, 181);
+  padding-bottom:120px;
 }
 
 .footer p {
