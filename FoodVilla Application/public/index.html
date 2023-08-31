@@ -20,37 +20,6 @@
 
   <!-- fontawesome cdn  -->
   <script src="https://kit.fontawesome.com/fb91e60c1d.js" crossorigin="anonymous"></script>
-
-  <script>
-    const item = document.getElementsByClassName('item');
-    const plusicon = document.getElementsByClassName('plus');
-    const closeicon = document.getElementsByClassName('close');
-
-    for (let i = 0; i < item.length; i++) {
-      closeicon[i].style.display = "none";
-
-      item[i].addEventListener('click', () => {
-        // Close all items except the clicked one
-        for (let j = 0; j < item.length; j++) {
-          if (j !== i) {
-            item[j].classList.remove("active");
-            closeicon[j].style.display = "none";
-            plusicon[j].style.display = "block";
-          }
-        }
-
-        const isActive = item[i].classList.toggle("active");
-        if (isActive) {
-          closeicon[i].style.display = "block";
-          plusicon[i].style.display = "none";
-        } else {
-          closeicon[i].style.display = "none";
-          plusicon[i].style.display = "block";
-        }
-      });
-    }
-
-  </script>
 </body>
 
 </html>
