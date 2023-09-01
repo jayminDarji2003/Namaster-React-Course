@@ -50,6 +50,7 @@ function Body() {
         setAllRestaurants(restaurantsData);
         setFilteredRestaurants(restaurantsData);
         setIsLoading(false);
+        // console.log(restaurantsData);  // empty right now, so don't get restaurant data. 
       })
       .catch(error => {
         console.log("Error while fetching restaurant data:", error);
@@ -106,7 +107,7 @@ function Body() {
         isLoading ? <Shimmer /> : (
           <div className='main'>
             {filteredRestaurants.length === 0 ? (
-              <h2>Oops!! - Enter valid input</h2>
+              <h2>Oops!! - Something went wrong</h2>
             ) :
               filteredRestaurants.map((restaurant) => (
                 <Link to={"/restaurant/" + restaurant.info.id} key={restaurant.info.id}>

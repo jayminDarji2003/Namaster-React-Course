@@ -21,10 +21,13 @@ const RestaurantMenu = () => {
             const resData = await response.json();
             setRestaurantInfo(resData);
             setIsLoading(false);
+            console.log("data fetched");
+            console.log(resData);
         }
         catch (error) {
             console.error("Error occurred while fetching data", error);
             setIsLoading(false);
+            console.log("data not fetched");
         }
     }
 
@@ -33,7 +36,7 @@ const RestaurantMenu = () => {
     const restaurantMenuDetail = restaurantInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.carousel[0]?.dish?.info || {};
     const IMG_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/";
 
-    console.log(restaurantMenuDetail);
+    // console.log(restaurantMenuDetail);
 
     return (
         <>
@@ -53,9 +56,9 @@ const RestaurantMenu = () => {
                                         <p>{restaurantDetail?.areaName} , {restaurantDetail?.sla?.lastMileTravelString} </p>
                                     </div>
                                     <div className="ratingData">
-                                        <p className="firstPara"><i className="fa-solid fa-star star"></i> {restaurantDetail.avgRating} </p>
+                                        <p className="firstPara"><i className="fa-solid fa-star star"></i> {restaurantDetail?.avgRating} </p>
                                         <hr className="newHr" />
-                                        <p className="ratingCount">{restaurantDetail.totalRatingsString}</p>
+                                        <p className="ratingCount">{restaurantDetail?.totalRatingsString}</p>
                                     </div>
                                 </section>
 
