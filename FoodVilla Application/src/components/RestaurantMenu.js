@@ -21,13 +21,13 @@ const RestaurantMenu = () => {
             const resData = await response.json();
             setRestaurantInfo(resData);
             setIsLoading(false);
-            console.log("data fetched");
-            console.log(resData);
+            //console.log("data fetched");
+            // console.log(resData);
         }
         catch (error) {
             console.error("Error occurred while fetching data", error);
             setIsLoading(false);
-            console.log("data not fetched");
+            // console.log("data not fetched");
         }
     }
 
