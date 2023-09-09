@@ -33,7 +33,7 @@ const RestaurantMenu = () => {
 
     // Extract id, name, and avgRating from the object
     const restaurantDetail = restaurantInfo?.data?.cards[0]?.card?.card?.info || {};
-    const restaurantMenuDetail = restaurantInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.carousel[0]?.dish?.info || {};
+    // const restaurantMenuDetail = restaurantInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.carousel[0]?.dish?.info || {};
     const IMG_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/";
 
     // console.log(restaurantMenuDetail);
@@ -66,7 +66,7 @@ const RestaurantMenu = () => {
 
                                 <section className="restOtherDetails">
                                     <div className="deliveryData">
-                                        <h4><i className="fa-solid fa-clock"></i> {restaurantDetail?.sla?.slaString}</h4>
+                                        {/* <h4><i className="fa-solid fa-clock"></i> {restaurantDetail?.sla?.slaString}</h4> */}
                                         <h4><i className="fa-solid fa-indian-rupee-sign ruppeIcon"></i> {restaurantDetail?.costForTwoMessage}</h4>
                                     </div>
 
@@ -92,11 +92,11 @@ const RestaurantMenu = () => {
 
                             </main>
 
-                            <section className="restaurantProductsList">
+                            {/* <section className="restaurantProductsList">
                                 <h3>{restaurantMenuDetail?.name}</h3>
                                 <h4>{restaurantMenuDetail?.description}</h4>
                                 <img src={IMG_URL + restaurantMenuDetail?.imageId} alt="image is here" />
-                            </section>
+                            </section> */}
                         </>
                     )
             }
@@ -105,6 +105,5 @@ const RestaurantMenu = () => {
 }
 
 export default RestaurantMenu;
-
 
 
