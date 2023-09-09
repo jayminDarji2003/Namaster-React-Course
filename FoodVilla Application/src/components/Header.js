@@ -54,7 +54,11 @@ function Header() {
                         </Link>
                     </li>
 
-                    <li>
+                    <li className="instamart">
+                        <Link to="/instamart">Instamart</Link>
+                    </li>
+
+                    <li className="online">
                         {isOnline ? "✅" : "⛔"}
                     </li>
                 </ul>

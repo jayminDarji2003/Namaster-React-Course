@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
-import loader from "../Assets/Images/loader_gif.gif"
 import "../Assets/CSS/RestaurantMenu.css"
 import discountImg from "../Assets/Images/discountImg.png"
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import Loader from "./Loader";
 
 const RestaurantMenu = () => {
     const { resId } = useParams();
@@ -14,9 +14,7 @@ const RestaurantMenu = () => {
             {
                 (!restaurantInfo) ?
                     (
-                        <div className="loaderContainer">
-                            <img className="menuLoader" src={loader} alt="loader image" />
-                        </div>
+                        <Loader />
                     ) : (
                         <>
                             <main className="restaurantContainer">
