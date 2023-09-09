@@ -37,7 +37,7 @@ const RestaurantMenu = () => {
 
                                 <section className="restOtherDetails">
                                     <div className="deliveryData">
-                                        {/* <h4><i className="fa-solid fa-clock"></i> {restaurantDetail?.sla?.slaString}</h4> */}
+                                        <h4><i className="fa-solid fa-clock"></i> {restaurantDetail?.sla?.slaString}</h4>
                                         <h4><i className="fa-solid fa-indian-rupee-sign ruppeIcon"></i> {restaurantDetail?.costForTwoMessage}</h4>
                                     </div>
 

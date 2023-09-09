@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import logo from '../Assets/Images/logo.png'
 import { Link } from 'react-router-dom';
+import useOnline from '../utils/useOnline';
 
 function Header() {
     const [isLogedIn, setIsLogedIn] = useState(true);
+    const isOnline = useOnline();
 
     return (
         <header>
@@ -50,6 +52,10 @@ function Header() {
                                     <i className="fa-solid fa-reply-all authenticationIcon"></i>
                             }
                         </Link>
+                    </li>
+
+                    <li>
+                        {isOnline ? "✅" : "⛔"}
                     </li>
                 </ul>
             </div>
