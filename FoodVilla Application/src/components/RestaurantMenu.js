@@ -1,47 +1,18 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import loader from "../Assets/Images/loader_gif.gif"
 import "../Assets/CSS/RestaurantMenu.css"
 import discountImg from "../Assets/Images/discountImg.png"
-import { Link } from "react-router-dom"
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
     const { resId } = useParams();
-    const [restaurantInfo, setRestaurantInfo] = useState({});
-    const [isLoading, setIsLoading] = useState(true);
+    const restaurantInfo = useRestaurantMenu(resId);
 
-    useEffect(() => {
-        getRestaurantInfo();
-    }, [])
-
-    async function getRestaurantInfo() {
-        try {
-            const response = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.022505&lng=72.5713621&restaurantId=" + resId + "&catalog_qa=undefined&submitAction=ENTER");
-
-            const resData = await response.json();
-            setRestaurantInfo(resData);
-            setIsLoading(false);
-            //console.log("data fetched");
-            // console.log(resData);
-        }
-        catch (error) {
-            console.error("Error occurred while fetching data", error);
-            setIsLoading(false);
-            // console.log("data not fetched");
-        }
-    }
-
-    // Extract id, name, and avgRating from the object
     const restaurantDetail = restaurantInfo?.data?.cards[0]?.card?.card?.info || {};
-    // const restaurantMenuDetail = restaurantInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.carousel[0]?.dish?.info || {};
-    const IMG_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/";
-
-    // console.log(restaurantMenuDetail);
-
     return (
         <>
             {
-                isLoading ?
+                (!restaurantInfo) ?
                     (
                         <div className="loaderContainer">
                             <img className="menuLoader" src={loader} alt="loader image" />

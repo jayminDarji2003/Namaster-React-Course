@@ -3,44 +3,19 @@ import '../Assets/CSS/App.css'
 import Card from './Card';
 import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
-
-
-function filterRestaurant(searchTxt, restaurants) {
-  // filterRestaurants -> store array of objects of filtered restaurants.
-  const filterRestaurants = restaurants.filter((restaurant) => {
-    return restaurant?.info?.name?.toLowerCase()?.includes(searchTxt?.toLowerCase());
-  });
-
-  return filterRestaurants;
-}
-
+import { filterRestaurant } from '../utils/helper';
+import useOnline from '../utils/useOnline';
 
 function Body() {
   const [allRestaurants, setAllRestaurants] = useState([]);   // pass empty array
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);  // pass empty array
   const [searchTxt, setSearchTxt] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const isOnline = useOnline();
 
   useEffect(() => {
     getRestaurants();
   }, []);
-
-  // async function getRestaurants() {
-  //   try {
-  //     const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.022505&lng=72.5713621&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-  //     const json = await data.json();
-
-  //     setAllRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-  //     setFilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-
-  //     setIsLoading(false);
-  //   }
-  //   catch (error) {
-  //     console.log("Error while fetching restaurant data.")
-  //     setIsLoading(false);
-  //   }
-  // }
-
 
   function getRestaurants() {
     // desktop api
