@@ -20,7 +20,7 @@ const RestaurantMenu = () => {
                             <main className="restaurantContainer">
                                 <section className="restaurantDetails">
                                     <div className="resData">
-                                        <h2>{restaurantDetail?.name}</h2>
+                                        <h2 className="text-2xl font-bold">{restaurantDetail?.name}</h2>
                                         <p>{restaurantDetail?.labels[2]?.message}</p>
                                         <p>{restaurantDetail?.areaName} , {restaurantDetail?.sla?.lastMileTravelString} </p>
                                     </div>

@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
-import './Assets/CSS/App.css';
+import './App.css';
+import './index.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import App from './App';
 import Profile from './components/Profile';
@@ -26,7 +27,7 @@ root.render(
           <Route path="/authentication" element={<Authentication />} />
 
           <Route path="/instamart" element={
-            <Suspense fallback={<Loader/>}>
+            <Suspense fallback={<Loader />}>
               <Instamart />
             </Suspense>} />
 

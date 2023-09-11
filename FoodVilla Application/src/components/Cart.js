@@ -52,7 +52,7 @@ function Cart() {
 
     return (
         <>
-            <div className="Outercontainer">
+            <div className="Outercontainer flex justify-center items-center flex-col">
                 <img className="gifImg" src={cartImg} autoPlay loop />
                 <h2>This is CART</h2>
                 <p>No items added here 🎉</p>

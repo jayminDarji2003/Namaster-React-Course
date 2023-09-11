@@ -5,13 +5,13 @@ function Card({ cloudinaryImageId, name, cuisines, avgRating }) {
     return (
         <div className="resCard">
             <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId} alt="Image" />
-            <h3>{name}</h3>
+            <h3 className='text-lg font-bold'>{name}</h3>
             <p>{cuisines.join(", ")}</p>
             <p><span className="rating">{avgRating}</span> starts</p>
         </div>
     )
 }
-    
+
 export default Card
 
 
