@@ -1,6 +1,4 @@
 .shimmer {
-    /* margin-top: 20px; */
-    /* margin-bottom: 20px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,7 +10,6 @@
 .shimmer-card {
     height: 350px;
     width: 300px;
-    /* background-color: #f8ad9d; */
     background-color: #f4ebe9e1;
     border-radius: 10px;
     overflow: hidden;
