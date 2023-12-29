@@ -1,0 +1,7 @@
+Day 42 - Laying the foundation 
+    - Tree shaking
+    - Ployfill
+    - Babel
+    - Script creation
+    - removing console.log from all the file in build. (new package)
+    - Keys
