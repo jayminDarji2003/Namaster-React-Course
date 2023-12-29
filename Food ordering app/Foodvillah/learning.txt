@@ -5,3 +5,8 @@ Day 42 - Laying the foundation
     - Script creation
     - removing console.log from all the file in build. (new package)
     - Keys
+    - jsx
+        -> {} if we add this we can write all the JS code here
+    - Components
+        -> Functional Components
+    
