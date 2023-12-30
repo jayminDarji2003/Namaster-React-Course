@@ -16,29 +16,29 @@ import logo from "/logo.png";
 function Header() {
     return (
         <>
-            <header className='bg-blue-400 h-20'>
-                <div className='flex justify-between'>
-                    <img className='h-14' src={logo} alt="Image is not able to see." />
+            <header className=' h-20 shadow-md'>
+                <div className='flex justify-between items-center h-20 ml-36 mr-36 '>
+                    <img className='h-14 cursor-pointer hover:h-16' src={logo} alt="Image is not able to see." />
                     <nav >
-                        <ul className='flex flex-row'>
-                            <li>
-                                <i class="fa-solid fa-magnifying-glass"></i>
+                        <ul className='flex flex-row gap-8'>
+                            <li className='flex items-center gap-1 font-bold text-xl hover:text-orange-500 cursor-pointer'>
+                                <i className="fa-solid fa-magnifying-glass"></i>
                                 <p>Search</p>
                             </li>
-                            <li>
-                                <i class="fa-solid fa-file-invoice-dollar"></i>
+                            <li className='flex items-center gap-1 font-bold text-xl hover:text-orange-500 cursor-pointer'>
+                                <i className="fa-solid fa-file-invoice-dollar"></i>
                                 <p>Offers</p>
                             </li>
-                            <li>
-                                <i class="fa-solid fa-handshake-angle"></i>
+                            <li className='flex items-center gap-1 font-bold text-xl hover:text-orange-500 cursor-pointer'>
+                                <i className="fa-solid fa-handshake-angle"></i>
                                 <p>Help</p>
                             </li>
-                            <li>
-                                <i class="fa-regular fa-user"></i>
+                            <li className='flex items-center gap-1 font-bold text-xl hover:text-orange-500 cursor-pointer'>
+                                <i className="fa-regular fa-user"></i>
                                 <p>Sign in</p>
                             </li>
-                            <li>
-                                <i class="fa-solid fa-cart-shopping"></i>
+                            <li className='flex items-center gap-1 font-bold text-xl hover:text-orange-500 cursor-pointer'>
+                                <i className="fa-solid fa-cart-shopping"></i>
                                 <p>Cart</p>
                             </li>
 

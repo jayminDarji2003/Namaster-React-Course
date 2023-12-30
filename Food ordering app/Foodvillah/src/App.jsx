@@ -1,4 +1,6 @@
+// import Carousel from "./Components/Carousel"
 import Header from "./Components/Header"
+import RestaurantList from "./Components/RestaurantList"
 
 /*
   Project structure :-
@@ -25,6 +27,8 @@ function App() {
   return (
     <>
       <Header />
+      {/* <Carousel /> */}
+      <RestaurantList />
     </>
   )
 }
