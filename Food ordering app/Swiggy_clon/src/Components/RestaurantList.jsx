@@ -163,7 +163,7 @@ const resData = [
                                         "lastMileTravel": 1.7,
                                         "serviceability": "SERVICEABLE",
                                         "slaString": "19 mins",
-                                        "lastMileTravelString": "1.7 km",
+                                        "   ": "1.7 km",
                                         "iconType": "ICON_TYPE_EMPTY"
                                     },
                                     "availability": {
