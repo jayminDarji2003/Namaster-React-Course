@@ -1869,6 +1869,7 @@ console.log(RestaurantsInfo.length);
 function RestaurantList() {
     return (
         <>
+            <p className='text-2xl ml-44 mt-10 mb-3 font-bold'>Top restaurants in Ahmedabad</p>
             <div className="flex flex-wrap justify-center">
                 <RestaurantCard restaurant={RestaurantsInfo[0]} />
                 <RestaurantCard restaurant={RestaurantsInfo[1]} />
