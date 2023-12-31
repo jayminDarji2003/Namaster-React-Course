@@ -1861,36 +1861,18 @@ const resData = [
     },
 ];
 
-
-const RestaurantsInfo = resData[0].card.card.gridElements.infoWithStyle.restaurants;
-
-console.log(RestaurantsInfo.length);
+const RestaurantsInfo = resData[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 
 function RestaurantList() {
     return (
         <>
             <p className='text-2xl ml-44 mt-10 mb-3 font-bold'>Top restaurants in Ahmedabad</p>
             <div className="flex flex-wrap justify-center">
-                <RestaurantCard restaurant={RestaurantsInfo[0]} />
-                <RestaurantCard restaurant={RestaurantsInfo[1]} />
-                <RestaurantCard restaurant={RestaurantsInfo[2]} />
-                <RestaurantCard restaurant={RestaurantsInfo[3]} />
-                <RestaurantCard restaurant={RestaurantsInfo[4]} />
-                <RestaurantCard restaurant={RestaurantsInfo[5]} />
-                <RestaurantCard restaurant={RestaurantsInfo[6]} />
-                <RestaurantCard restaurant={RestaurantsInfo[7]} />
-                <RestaurantCard restaurant={RestaurantsInfo[8]} />
-                <RestaurantCard restaurant={RestaurantsInfo[9]} />
-                <RestaurantCard restaurant={RestaurantsInfo[10]} />
-                <RestaurantCard restaurant={RestaurantsInfo[11]} />
-                <RestaurantCard restaurant={RestaurantsInfo[12]} />
-                <RestaurantCard restaurant={RestaurantsInfo[13]} />
-                <RestaurantCard restaurant={RestaurantsInfo[14]} />
-                <RestaurantCard restaurant={RestaurantsInfo[15]} />
-                <RestaurantCard restaurant={RestaurantsInfo[16]} />
-                <RestaurantCard restaurant={RestaurantsInfo[17]} />
-                <RestaurantCard restaurant={RestaurantsInfo[18]} />
-                <RestaurantCard restaurant={RestaurantsInfo[19]} />
+                {
+                    RestaurantsInfo.map((restaurant, index) => {
+                        return <RestaurantCard key={restaurant?.info?.id} {...restaurant?.info} />
+                    })
+                }
             </div>
         </>
     )

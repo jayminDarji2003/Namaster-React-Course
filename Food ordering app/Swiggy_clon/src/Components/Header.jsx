@@ -18,7 +18,7 @@ function Header() {
         <>
             <header className=' h-20 shadow-md'>
                 <div className='flex justify-between items-center h-20 ml-40 mr-36 '>
-                    <img className='h-12 cursor-pointer' src={logo} alt="Image is not able to see." />
+                    <img className='h-12 cursor-pointer hover:scale-105' src={logo} alt="Image is not able to see." />
                     <nav >
                         <ul className='flex flex-row gap-16 text-gray-600'>
                             <li className='flex items-center gap-2 font-semibold text-md hover:text-orange-500 cursor-pointer'>
