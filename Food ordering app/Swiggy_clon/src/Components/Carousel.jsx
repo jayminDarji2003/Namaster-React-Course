@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { RESTAURANT_FOOD_URL } from '../config';
 
 const Carousel = ({ foodItems }) => {
     const [scrollPosition, setScrollPosition] = useState(0);
@@ -36,7 +37,7 @@ const Carousel = ({ foodItems }) => {
                     {Items.map((item, index) => (
                         <div key={index} className="flex-shrink-0 w-40 h-40 rounded-lg overflow-hidden">
                             <img
-                                src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029857/" + item.imageId}
+                                src={RESTAURANT_FOOD_URL + item.imageId}
                                 alt={item.text}
                                 className="w-full h-full object-cover rounded-lg"
                             />
