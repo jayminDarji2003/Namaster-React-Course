@@ -5,6 +5,18 @@ import { useState } from 'react'
 function Search() {
     const [searchTxt, setSearchTxt] = useState("");
 
+    const setInputValue = (e) => {
+        setSearchTxt(e.target.value);
+    }
+
+    const btnClinked = () => {
+        filterData();
+    }
+
+    const filterData = () => {
+        
+    }
+
     return (
         <div className='w-96 mt-10 p-5 m-auto flex items-center justify-center bg-orange-400 gap-5 rounded-md'>
             <input
@@ -12,12 +24,12 @@ function Search() {
                 type="text"
                 placeholder='search restaurant'
                 value={searchTxt}
-                onChange={(e) => {
-                    setSearchTxt(e.target.value);
-                    console.log(e.target.value);
-                }}
+                onChange={setInputValue}
             />
-            <button className='bg-white p-2 w-20 font-bold text-gray-600'>search</button>
+            <button
+                className='bg-white p-2 w-20 font-bold text-gray-600'
+                onClick={btnClinked}
+            >search</button>
         </div>
     )
 }
