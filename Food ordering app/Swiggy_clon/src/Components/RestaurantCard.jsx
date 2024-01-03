@@ -13,7 +13,6 @@ function RestaurantCard({ cloudinaryImageId, name, cuisines, avgRating, sla, loc
                     <p className="font-bold text-gray-600"><i className="text-green-500 fa-solid fa-star"></i>{avgRating}  <span className="font-extrabold"> . </span>  {sla?.lastMileTravelString}</p>
                     <p className="text-xs font-bold text-gray-600">{locality}</p>
                 </div>
-
             </div>
         </>
     )
