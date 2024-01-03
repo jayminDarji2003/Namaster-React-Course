@@ -4,6 +4,7 @@ import Body from "./Components/Body"
 import Search from "./Components/Search";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom"
 import { SWIGGY_API } from "./config";
+import Shimmer from "./Components/Shimmer";
 
 function App() {
   const [allRestaurant, setAllRestaurant] = useState([]);
@@ -49,6 +50,7 @@ function App() {
           >
             <Route index element={<Search restaurantData={allRestaurant} />} />
           </Route>
+
         </Routes>
       </BrowserRouter>
     </>
