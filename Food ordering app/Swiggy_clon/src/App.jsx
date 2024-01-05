@@ -49,7 +49,7 @@ function App() {
             }
           >
             <Route index element={<Search restaurantData={allRestaurant} />} />
-          </Route>
+          </Route>  
 
         </Routes>
       </BrowserRouter>
