@@ -1,8 +1,8 @@
-import React from 'react'
+
 
 function Error() {
     return (
-        <div className='flex justify-center items-center'>
+        <div className='text-xl'>
             Page not found!!
         </div>
     )

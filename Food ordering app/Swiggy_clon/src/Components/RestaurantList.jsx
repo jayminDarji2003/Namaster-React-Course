@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
 import RestaurantCard from "./RestaurantCard";
 
 function RestaurantList({ restaurantsInfo }) {
-    const restaurants = restaurantsInfo?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+    const restaurants = restaurantsInfo?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+    // console.log(restaurantsInfo);
 
     return (
         <>
@@ -11,7 +13,11 @@ function RestaurantList({ restaurantsInfo }) {
                     <div className="flex flex-wrap justify-center">
                         {
                             restaurants?.length === 0 ? <h1>Not restaurant found</h1> : restaurants.map((restaurant) => {
-                                return <RestaurantCard key={restaurant?.info?.id} {...restaurant?.info} />
+                                return (
+                                    <Link to={"/restaurant/" + restaurant?.info?.id} key={restaurant?.info?.id}>
+                                        <RestaurantCard {...restaurant?.info} />
+                                    </Link>
+                                )
                             })
                         }
                     </div>

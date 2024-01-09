@@ -17,7 +17,7 @@ import { Link } from 'react-router-dom';
 function Header() {
     return (
         <>
-            <header className=' h-20 shadow-md'>
+            <div className=' h-20 shadow-md'>
                 <div className='flex justify-between items-center h-20 ml-40 mr-36 '>
                     <Link to='/' >
                         <img className='h-12 cursor-pointer hover:scale-105' src={logo} alt="Image is not able to see." />
@@ -31,26 +31,35 @@ function Header() {
                                 </Link>
                             </li>
                             <li className='flex items-center gap-2 font-semibold text-md hover:text-orange-500 cursor-pointer'>
-                                <i className="fa-solid fa-file-invoice-dollar"></i>
-                                <p>Offers</p>
+                                <Link to='/offers' className='flex items-center gap-2'>
+                                    <i className="fa-solid fa-file-invoice-dollar"></i>
+                                    <p>Offers</p>
+                                </Link>
                             </li>
                             <li className='flex items-center gap-2 font-semibold text-md hover:text-orange-500 cursor-pointer'>
-                                <i className="fa-solid fa-handshake-angle"></i>
-                                <p>Help</p>
+                                <Link to='/help' className='flex items-center gap-2'>
+                                    <i className="fa-solid fa-handshake-angle"></i>
+                                    <p>Help</p>
+                                </Link >
                             </li>
                             <li className='flex items-center gap-2 font-semibold text-md hover:text-orange-500 cursor-pointer'>
-                                <i className="fa-regular fa-user"></i>
-                                <p>Sign in</p>
+                                <Link to='/auth' className='flex items-center gap-2'>
+                                    <i className="fa-regular fa-user"></i>
+                                    <p>Sign in</p>
+                                </Link>
                             </li>
                             <li className='flex items-center gap-2 font-semibold text-md hover:text-orange-500 cursor-pointer'>
-                                <i className="fa-solid fa-cart-shopping"></i>
-                                <p>Cart</p>
+                                <Link to='/cart' className='flex items-center gap-2'>
+                                    <i className="fa-solid fa-cart-shopping"></i>
+                                    <p>Cart</p>
+                                </Link>
                             </li>
 
                         </ul>
                     </nav>
                 </div>
-            </header>
+            </div>
+
         </>
     )
 }

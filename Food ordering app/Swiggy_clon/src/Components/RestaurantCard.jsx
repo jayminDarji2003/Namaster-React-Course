@@ -1,5 +1,6 @@
 import React from "react";
 import { RESTAURANT_IMAGE_URL } from "../config";
+import { Link } from "react-router-dom";
 
 
 function RestaurantCard({ cloudinaryImageId, name, cuisines, avgRating, sla, locality }) {
