@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import { RESTAURANT_MENU_FOOD_IMG } from "../config";
+import Loader from "./Loader";
 
 function RestaurantInfo() {
   const { id } = useParams(); // reading a dynamic URL
@@ -27,7 +28,8 @@ function RestaurantInfo() {
   }
 
   return !restaurant ? (
-    <Shimmer />
+    // <Shimmer />
+    <Loader />
   ) : (
     <>
       <div className="w-screen flex justify-center">
@@ -67,16 +69,16 @@ function RestaurantInfo() {
             </div>
           </div>
 
-          <div className="border-2 h-20 w-36 flex flex-col justify-center items-center rounded-lg">
+          <div className="border-2 h-20 w-36 flex flex-col justify-center items-center rounded-lg ">
             <div>
-              <i class="fa-solid fa-star"></i>
-              <span className="ml-2 font-bold">
+              <i class="fa-solid fa-star text-orange-400"></i>
+              <span className="ml-2 font-bold text-orange-400">
                 {restaurant?.cards[0]?.card?.card?.info?.avgRating}
               </span>
             </div>
             <hr />
             <div>
-              <p className="text-sm">
+              <p className="text-xs">
                 {restaurant?.cards[0]?.card?.card?.info?.totalRatingsString}
               </p>
             </div>
@@ -86,18 +88,6 @@ function RestaurantInfo() {
 
       {/* starting the menu  */}
       <h1 className="text-center text-2xl font-bold mb-6">Menu</h1>
-
-      {/* <div>
-        {restaurant.cards[2].groupedCard.cardGroupMap.REGULAR.cards
-          .slice(0, -2)
-          .map((card, index) => {
-            return (
-              <div key={index}>
-                <p>{card.card.card.title}</p>
-              </div>
-            );
-          })}
-      </div> */}
 
       <div className="flex justify-center">
         <div className="w-1/2">
@@ -118,16 +108,26 @@ function RestaurantInfo() {
                         <p className="text-orange-400 font-bold text-xl">
                           {item?.card?.info?.name}
                         </p>
-                        <p className="text-sm">{item?.card?.info?.description}</p>
-                        <p className="bg-red-700">{item?.card?.info?.defaultPrice}</p>
+                        <p className="text-sm w-96">
+                          {item?.card?.info?.description}
+                        </p>
+                        <p className="mt-5 font-bold ">
+                          Price : ₹{(item?.card?.info?.price / 100).toFixed(0)}
+                        </p>
                       </div>
-                      <img
-                        className="w-20"
-                        src={
-                          RESTAURANT_MENU_FOOD_IMG + item?.card?.info?.imageId
-                        }
-                        alt="image"
-                      />
+
+                      <div className="flex flex-col gap-2">
+                        <img
+                          className="w-36 h-32"
+                          src={
+                            RESTAURANT_MENU_FOOD_IMG + item?.card?.info?.imageId
+                          }
+                          alt="image"
+                        />
+                        <button className="bg-orange-400 p-1 rounded-md px-3">
+                          Add
+                        </button>
+                      </div>
                     </li>
                   ))}
                 </ul>
