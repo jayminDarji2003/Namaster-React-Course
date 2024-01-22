@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import RestaurantCard from "./RestaurantCard";
 
 function RestaurantList({ restaurantsInfo }) {
-    const restaurants = restaurantsInfo?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+    const restaurants = restaurantsInfo?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
     // console.log(restaurantsInfo);
 
     return (

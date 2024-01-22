@@ -4,7 +4,7 @@ import { RESTAURANT_FOOD_URL } from '../config';
 const Carousel = ({ food }) => {
     const [scrollPosition, setScrollPosition] = useState(0);
     const carouselRef = useRef(null);
-    const Items = food?.data?.cards[1]?.card?.card?.imageGridCards?.info;
+    const Items = food?.data?.cards[0]?.card?.card?.imageGridCards?.info;
 
     const handlePrevClick = () => {
         setScrollPosition((prevPosition) => prevPosition - 300);

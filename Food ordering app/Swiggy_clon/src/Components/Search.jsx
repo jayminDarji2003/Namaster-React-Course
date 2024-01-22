@@ -7,7 +7,7 @@ function Search({ restaurantData }) {
     const [searchPerformed, setSearchPerformed] = useState(false);
 
     const restaurants =
-        restaurantData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+        restaurantData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 
     const filterRestaurants = (searchText, restaurants) => {
         return restaurants.filter((restaurant) => {
