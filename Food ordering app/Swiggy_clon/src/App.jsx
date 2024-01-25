@@ -3,7 +3,7 @@ import Header from "./Components/Header";
 import Body from "./Components/Body";
 import Search from "./Components/Search";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
-import { SWIGGY_API} from "./config";
+import { SWIGGY_API } from "./config";
 import Shimmer from "./Components/Shimmer";
 import Error from "./Components/Error";
 import Offers from "./Components/Offers";
@@ -65,7 +65,14 @@ function App() {
             {/* Dynamic routes  */}
             <Route path="restaurant/:id" element={<RestaurantInfo />} />
           </Route>
-          <Route path="*" element={<Error />} />
+          <Route
+            path="*"
+            element={
+              <Error
+                name={"Opps!!, something went wrong. Please go to home page."}
+              />
+            }
+          />
         </Routes>
       </BrowserRouter>
     </>
