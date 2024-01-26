@@ -3,7 +3,7 @@ import Header from "./Components/Header";
 import Body from "./Components/Body";
 import Search from "./Components/Search";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
-import { SWIGGY_API } from "./config";
+import { SWIGGY_API_2 } from "./config";
 import Shimmer from "./Components/Shimmer";
 import Error from "./Components/Error";
 import Offers from "./Components/Offers";
@@ -30,7 +30,7 @@ function App() {
   }, []);
 
   async function getRestaurant() {
-    const data = await fetch(SWIGGY_API); // fetching the data from the swiggy api
+    const data = await fetch(SWIGGY_API_2); // fetching the data from the swiggy api
     const resData = await data.json(); // converting the data to json format
     // console.log(resData);
     setAllRestaurant(resData); // updating the restaurant
