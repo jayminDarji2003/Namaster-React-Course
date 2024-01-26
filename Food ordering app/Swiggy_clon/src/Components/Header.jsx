@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 import logo from "/logo.png";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 /*
     Header component structure :-
@@ -15,53 +15,50 @@ import { Link } from 'react-router-dom';
 */
 
 function Header() {
-    return (
-        <>
-            <div className=' h-20 shadow-md'>
-                <div className='flex justify-between items-center h-20 ml-40 mr-36 '>
-                    <Link to='/' >
-                        <img className='h-12 cursor-pointer hover:scale-105' src={logo} alt="Image is not able to see." />
-                    </Link>
-                    <nav >
-                        <ul className='flex flex-row gap-16 text-gray-600'>
-                            <li className='flex items-center gap-2 font-semibold text-md hover:text-orange-500 cursor-pointer'>
-                                <Link to='/search' className='flex items-center gap-2'>
-                                    <i className="fa-solid fa-magnifying-glass"></i>
-                                    <p>Search</p>
-                                </Link>
-                            </li>
-                            <li className='flex items-center gap-2 font-semibold text-md hover:text-orange-500 cursor-pointer'>
-                                <Link to='/offers' className='flex items-center gap-2'>
-                                    <i className="fa-solid fa-file-invoice-dollar"></i>
-                                    <p>Offers</p>
-                                </Link>
-                            </li>
-                            <li className='flex items-center gap-2 font-semibold text-md hover:text-orange-500 cursor-pointer'>
-                                <Link to='/help' className='flex items-center gap-2'>
-                                    <i className="fa-solid fa-handshake-angle"></i>
-                                    <p>Help</p>
-                                </Link >
-                            </li>
-                            <li className='flex items-center gap-2 font-semibold text-md hover:text-orange-500 cursor-pointer'>
-                                <Link to='/auth' className='flex items-center gap-2'>
-                                    <i className="fa-regular fa-user"></i>
-                                    <p>Sign in</p>
-                                </Link>
-                            </li>
-                            <li className='flex items-center gap-2 font-semibold text-md hover:text-orange-500 cursor-pointer'>
-                                <Link to='/cart' className='flex items-center gap-2'>
-                                    <i className="fa-solid fa-cart-shopping"></i>
-                                    <p>Cart</p>
-                                </Link>
-                            </li>
+  return (
+    <>
+      <div className=" h-20 shadow-md">
+        <div className="flex justify-between items-center h-20 ml-40 mr-36 ">
+          <Link to="/">
+            <img
+              className="h-12 cursor-pointer hover:scale-105"
+              src={logo}
+              alt="Image is not able to see."
+            />
+          </Link>
+          <nav>
+            <ul className="flex flex-row gap-16 text-gray-600">
+              <li className="flex items-center gap-2 font-semibold text-md hover:text-orange-500 cursor-pointer">
+                <Link to="/search" className="flex items-center gap-2">
+                  <i className="fa-solid fa-magnifying-glass"></i>
+                  <p>Search</p>
+                </Link>
+              </li>
+              <li className="flex items-center gap-2 font-semibold text-md hover:text-orange-500 cursor-pointer">
+                <Link to="/auth" className="flex items-center gap-2">
+                  <i className="fa-regular fa-user"></i>
+                  <p>Sign in</p>
+                </Link>
+              </li>
+              <li className="flex items-center gap-2 font-semibold text-md hover:text-orange-500 cursor-pointer">
+                <Link to="/cart" className="flex items-center gap-2">
+                  <i className="fa-solid fa-cart-shopping"></i>
+                  <p>Cart</p>
+                </Link>
+              </li>
 
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-
-        </>
-    )
+              <li className="flex items-center gap-2 font-semibold text-md hover:text-orange-500 cursor-pointer">
+                <Link to="/instamart" className="flex items-center gap-2">
+                  <i class="fa-solid fa-shop"></i>
+                  <p>Instamart</p>
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default Header;

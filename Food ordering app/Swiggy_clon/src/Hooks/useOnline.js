@@ -7,12 +7,24 @@ const useOnline = () => {
     const [isOnline, setIsOnlie] = useState(true)
 
     useEffect(() => {
-        window.addEventListener("online", () => {
+
+        const handleOnline = () => {
             setIsOnlie(true)
-        })
-        window.addEventListener("offline", () => {
+        }
+
+        const handleOffline = () => {
             setIsOnlie(false)
-        })
+        }
+
+        window.addEventListener("online", handleOnline)
+        window.addEventListener("offline", handleOffline)
+
+        // clearing the event listeners.
+        return () => {
+            window.removeEventListener("online", handleOnline)
+            window.removeEventListener("offline", handleOffline)
+        }
+
     }, [])
 
     return isOnline; // return true or false

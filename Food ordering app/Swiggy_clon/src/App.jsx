@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import Header from "./Components/Header";
 import Body from "./Components/Body";
 import Search from "./Components/Search";
@@ -12,9 +12,15 @@ import RestaurantMenu from "./Components/RestaurantMenu";
 import useRestaurant from "./Hooks/useRestaurant";
 import useOnline from "./Hooks/useOnline";
 import OfflinePage from "./Components/OfflinePage";
+import Loader from "./Components/Loader";
+
+// We are lazy loading the Instamart so don't import like this
+// import Instamart from "./Components/Instamart";
+// do like this
+const Instamart = lazy(() => import("./Components/Instamart"));
 
 function AppLayout() {
-  const offline = useOnline();  // custom hook for check wheather you are offline or online
+  const offline = useOnline(); // custom hook for check wheather you are offline or online
 
   if (!offline) {
     return <OfflinePage />;
@@ -47,6 +53,18 @@ function App() {
 
             {/* Rendering offers page  */}
             <Route path="offers" element={<Offers />} />
+
+            {/* Rendering instamart page  */}
+            <Route
+              path="instamart"
+              element={
+                // This Suspense is for Lazy loading 
+                // fallback is used for what you want to show when your component is loading.
+                <Suspense fallback={<Loader />}>  
+                  <Instamart />
+                </Suspense>
+              }
+            />
 
             {/* Rendering help page */}
             <Route path="help" element={<Help />} />
