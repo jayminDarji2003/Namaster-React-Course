@@ -1,34 +1,13 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Shimmer from "./Shimmer";
 import { RESTAURANT_MENU_FOOD_IMG } from "../config";
 import Loader from "./Loader";
+import useRestaurantMenu from "../Hooks/useRestaurantMenu";
 
-function RestaurantInfo() {
+function RestaurantMenu() {
   const { id } = useParams(); // reading a dynamic URL
-  const [restaurant, setRestaurant] = useState(null); // creating a state variable
-  let restaurantInfo = null;
-
-  useEffect(() => {
-    getRestaurantInfo();
-  }, []);
-
-  async function getRestaurantInfo() {
-    try {
-      const data = await fetch(
-        "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.022505&lng=72.5713621&restaurantId=" +
-          id +
-          "&catalog_qa=undefined&submitAction=ENTER"
-      );
-      const json = await data.json();
-      setRestaurant(json.data);
-    } catch (error) {
-      console.error("Error fetching restaurant info:", error);
-    }
-  }
+  const restaurant = useRestaurantMenu(id); // custom hook created to fetch the restaurant menu details.
 
   return !restaurant ? (
-    // <Shimmer />
     <Loader />
   ) : (
     <>
@@ -118,7 +97,7 @@ function RestaurantInfo() {
 
                       <div className="flex flex-col gap-2">
                         <img
-                          className="w-36 h-32"
+                          className="w-36 h-32 hover:scale-90"
                           src={
                             RESTAURANT_MENU_FOOD_IMG + item?.card?.info?.imageId
                           }
@@ -139,4 +118,4 @@ function RestaurantInfo() {
   );
 }
 
-export default RestaurantInfo;
+export default RestaurantMenu;

@@ -3,16 +3,23 @@ import Header from "./Components/Header";
 import Body from "./Components/Body";
 import Search from "./Components/Search";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
-import { SWIGGY_API_2 } from "./config";
-import Shimmer from "./Components/Shimmer";
 import Error from "./Components/Error";
 import Offers from "./Components/Offers";
 import Help from "./Components/Help";
 import Authentication from "./Components/Authentication";
 import Cart from "./Components/Cart";
-import RestaurantInfo from "./Components/RestaurantInfo";
+import RestaurantMenu from "./Components/RestaurantMenu";
+import useRestaurant from "./Hooks/useRestaurant";
+import useOnline from "./Hooks/useOnline";
+import OfflinePage from "./Components/OfflinePage";
 
 function AppLayout() {
+  const offline = useOnline();  // custom hook for check wheather you are offline or online
+
+  if (!offline) {
+    return <OfflinePage />;
+  }
+
   return (
     <>
       <Header />
@@ -22,19 +29,7 @@ function AppLayout() {
 }
 
 function App() {
-  const [allRestaurant, setAllRestaurant] = useState([]);
-
-  useEffect(() => {
-    // api call here
-    getRestaurant(); // function call
-  }, []);
-
-  async function getRestaurant() {
-    const data = await fetch(SWIGGY_API_2); // fetching the data from the swiggy api
-    const resData = await data.json(); // converting the data to json format
-    // console.log(resData);
-    setAllRestaurant(resData); // updating the restaurant
-  }
+  const allRestaurant = useRestaurant(); // custom hook which is used to get all the data for restaurant.
 
   return (
     <>
@@ -63,7 +58,7 @@ function App() {
             <Route path="cart" element={<Cart />} />
 
             {/* Dynamic routes  */}
-            <Route path="restaurant/:id" element={<RestaurantInfo />} />
+            <Route path="restaurant/:id" element={<RestaurantMenu />} />
           </Route>
           <Route
             path="*"

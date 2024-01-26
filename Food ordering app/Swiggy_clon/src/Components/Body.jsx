@@ -7,7 +7,7 @@ function Body({ restaurantData }) {
     return (
         <>
             {
-                restaurantData.length === 0 ? <Shimmer /> :
+                !restaurantData ? <Shimmer /> :
                     <div>
                         <Carousel food={restaurantData} />
                         <RestaurantList restaurantsInfo={restaurantData} />
