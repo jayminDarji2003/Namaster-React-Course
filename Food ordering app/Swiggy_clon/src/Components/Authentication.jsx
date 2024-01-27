@@ -1,9 +1,10 @@
+import { useState } from "react";
+import Register from "./Register";
+import Login from "./Login";
+
 function Authentication() {
-    return (
-        <>
-            <h1 className="text-xl">Authentication page!!</h1>
-        </>
-    )
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  return <>{isLoggedIn ? <Login /> : <Register />}</>;
 }
 
 export default Authentication;

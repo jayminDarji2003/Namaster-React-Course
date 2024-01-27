@@ -35,7 +35,7 @@ function Header() {
                 </Link>
               </li>
               <li className="flex items-center gap-2 font-semibold text-md hover:text-orange-500 cursor-pointer">
-                <Link to="/auth" className="flex items-center gap-2">
+                <Link to="/login" className="flex items-center gap-2">
                   <i className="fa-regular fa-user"></i>
                   <p>Sign in</p>
                 </Link>

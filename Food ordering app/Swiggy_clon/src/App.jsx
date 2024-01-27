@@ -13,6 +13,8 @@ import useRestaurant from "./Hooks/useRestaurant";
 import useOnline from "./Hooks/useOnline";
 import OfflinePage from "./Components/OfflinePage";
 import Loader from "./Components/Loader";
+import Login from "./Components/Login";
+import Register from "./Components/Register";
 
 // We are lazy loading the Instamart so don't import like this
 // import Instamart from "./Components/Instamart";
@@ -70,7 +72,8 @@ function App() {
             <Route path="help" element={<Help />} />
 
             {/* Rendering authentication page */}
-            <Route path="auth" element={<Authentication />} />
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
 
             {/* Rendering cart page */}
             <Route path="cart" element={<Cart />} />
