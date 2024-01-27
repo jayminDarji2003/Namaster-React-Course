@@ -50,7 +50,7 @@ function Search({ restaurantData }) {
           className="bg-white p-2 w-20 font-bold text-gray-600"
           onClick={() => handleSearch(searchTxt)}
         >
-          search
+          SEARCH
         </button>
       </div>
 

@@ -14,22 +14,22 @@ function RestaurantMenu() {
       <div className="w-screen flex justify-center">
         <div className="w-1/2  my-7 flex justify-between">
           <div>
-            <p className="text-lg font-bold">
+            <p className="text-xl font-bold">
               {restaurant?.cards[0]?.card?.card?.info?.name}
             </p>
             <div className="flex mt-2">
-              <p className="text-sm text-gray-500">
+              <p className="text-sm font-semibold text-gray-500">
                 {restaurant?.cards[0]?.card?.card?.info?.cuisines[0]}
               </p>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm font-semibold text-gray-500">
                 , {restaurant?.cards[0]?.card?.card?.info?.cuisines[1]}
               </p>
             </div>
             <div className="flex gap-2">
-              <p className="text-sm text-gray-500">
+              <p className="text-sm font-semibold text-gray-500">
                 {restaurant?.cards[0]?.card?.card?.info?.areaName}
               </p>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm font-semibold text-gray-500">
                 {
                   restaurant?.cards[0]?.card?.card?.info?.sla
                     ?.lastMileTravelString
@@ -42,7 +42,7 @@ function RestaurantMenu() {
                 className="fa-solid fa-person-biking"
                 style={{ color: "	#808080" }}
               ></i>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-gray-500  font-semibold">
                 {restaurant?.cards[0]?.card?.card?.info?.feeDetails?.message}
               </p>
             </div>
@@ -66,7 +66,7 @@ function RestaurantMenu() {
       </div>
 
       {/* starting the menu  */}
-      <h1 className="text-center text-2xl font-bold mb-6">Menu</h1>
+      <h1 className="text-center text-2xl font-bold ">MENU - FOOD</h1>
 
       <div className="flex justify-center">
         <div className="w-1/2">
@@ -74,9 +74,14 @@ function RestaurantMenu() {
             ?.slice(0, -2)
             ?.map((category, index) => (
               <div key={index}>
-                <p className="text-xl p-2 text-center font-bold bg-orange-400">
-                  {category?.card?.card?.title}
-                </p>
+                {category?.card?.card?.title === undefined ? (
+                  <p></p>
+                ) : (
+                  <p className="text-xl p-2 text-center font-bold text-white bg-orange-400">
+                    {category?.card?.card?.title.toUpperCase()}
+                  </p>
+                )}
+
                 <ul className="mt-2">
                   {category?.card?.card?.itemCards?.map((item, itemIndex) => (
                     <li
@@ -87,7 +92,7 @@ function RestaurantMenu() {
                         <p className="text-orange-400 font-bold text-xl">
                           {item?.card?.info?.name}
                         </p>
-                        <p className="text-sm w-96">
+                        <p className="text-sm w-96 font-medium text-gray-700">
                           {item?.card?.info?.description}
                         </p>
                         <p className="mt-5 font-bold ">
@@ -103,8 +108,9 @@ function RestaurantMenu() {
                           }
                           alt="image"
                         />
-                        <button className="bg-orange-400 p-1 rounded-md px-3">
-                          Add
+                        <button className="bg-orange-400 p-1 rounded-md px-3 text-white flex justify-center items-center font-bold gap-1">
+                          <i class="fa-solid fa-cart-shopping"></i>
+                          <p>ADD</p>
                         </button>
                       </div>
                     </li>
