@@ -60,9 +60,9 @@ function App() {
             <Route
               path="instamart"
               element={
-                // This Suspense is for Lazy loading 
+                // This Suspense is for Lazy loading
                 // fallback is used for what you want to show when your component is loading.
-                <Suspense fallback={<Loader />}>  
+                <Suspense fallback={<Loader />}>
                   <Instamart />
                 </Suspense>
               }
