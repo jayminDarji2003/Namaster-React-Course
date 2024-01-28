@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import RestaurantCard from "./RestaurantCard";
 import { Link } from "react-router-dom";
+import UserContext from "../Contexts/UserContext";
 
 function Search({ restaurantData }) {
   const [searchTxt, setSearchTxt] = useState("");
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchPerformed, setSearchPerformed] = useState(false);
+  const { user, setUser } = useContext(UserContext);
 
   const restaurants =
     restaurantData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
@@ -52,6 +54,20 @@ function Search({ restaurantData }) {
         >
           SEARCH
         </button>
+      </div>
+
+      <div>
+        <input
+          type="text"
+          value={user.name}
+          className="border-2 m-2"
+          onChange={(e) => {
+            setUser({
+              ...user,
+              name: e.target.value,
+            });
+          }}
+        />
       </div>
 
       <div className="flex flex-wrap justify-center">

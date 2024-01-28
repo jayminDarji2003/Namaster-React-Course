@@ -15,6 +15,7 @@ import OfflinePage from "./Components/OfflinePage";
 import Loader from "./Components/Loader";
 import Login from "./Components/Login";
 import Register from "./Components/Register";
+import UserContext from "./Contexts/UserContext";
 
 // We are lazy loading the Instamart so don't import like this
 // import Instamart from "./Components/Instamart";
@@ -28,10 +29,17 @@ function AppLayout() {
     return <OfflinePage />;
   }
 
+  const [userData, setUserData] = useState({
+    name: "Jaymin Darji",
+    email: "jaymin@gmail.com",
+  });
+
   return (
     <>
-      <Header />
-      <Outlet />
+      <UserContext.Provider value={{ user: userData, setUser: setUserData }}>
+        <Header />
+        <Outlet />
+      </UserContext.Provider>
     </>
   );
 }
