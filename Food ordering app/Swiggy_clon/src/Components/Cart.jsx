@@ -1,20 +1,50 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import UserContext from "../Contexts/UserContext";
+import { useSelector } from "react-redux";
+import { RESTAURANT_MENU_FOOD_IMG } from "../config";
 
 function Cart() {
   const { user } = useContext(UserContext);
+  const cartItem = useSelector((store) => store.cart.items);
 
   return (
     <>
-      <div className="flex justity-center items-center flex-col h-screen w-screen">
-        <img src="empty_cart.png" alt="image" className="h-96" />
-        <p className="text-xs font-bold text-gray-500 mt-3">Hello, {user.name}</p>
-        <p className="text-xl font-bold mb-3">Your cart is empty.</p>
-        <Link to="/" className="bg-[#fc8019] p-2 text-white font-bold">
-          CHECK RESTAURANT FOOD
-        </Link>
-      </div>
+      {cartItem.length === 0 ? (
+        <div className="flex justify-center items-center flex-col h-screen w-screen">
+          <img src="empty_cart.png" alt="image" className="h-96" />
+          <p className="text-xs font-bold text-gray-500 mt-3">
+            Hello, {user.name}
+          </p>
+          <p className="text-xl font-bold mb-3">Your cart is empty.</p>
+          <Link to="/" className="bg-[#fc8019] p-2 text-white font-bold">
+            CHECK RESTAURANT FOOD
+          </Link>
+        </div>
+      ) : (
+        <div>
+          <p className="text-center my-4 font-bold text-2xl text-gray-600">Cart page</p>
+          {cartItem.map((item, index) => (
+            <div key={index} className="border-2 container mx-auto my-5 p-5 flex justify-between items-center px-20 rounded-lg">
+              <div className="flex flex-col justify-center items-center">
+                <img
+                  className="w-36 h-32"
+                  src={RESTAURANT_MENU_FOOD_IMG + item?.card?.info?.imageId}
+                  alt="image"
+                />
+                <p className="font-bold py-2">{item?.card?.info?.name}</p>
+              </div>
+              <div>
+                <div className="flex gap-2 items-center border p-1">
+                  <button className="bg-gray-300 px-3 font-bold text-2xl">+</button>
+                  <p className="font-bold text-2xl">1</p> {/* Added className attribute */}
+                  <button className="bg-gray-300 px-3 font-bold text-2xl">-</button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </>
   );
 }

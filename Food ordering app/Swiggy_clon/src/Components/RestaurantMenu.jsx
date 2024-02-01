@@ -2,10 +2,17 @@ import { useParams } from "react-router-dom";
 import { RESTAURANT_MENU_FOOD_IMG } from "../config";
 import Loader from "./Loader";
 import useRestaurantMenu from "../Hooks/useRestaurantMenu";
+import { addItem } from "../utils/cartSlice";
+import { useDispatch } from "react-redux";
 
 function RestaurantMenu() {
   const { id } = useParams(); // reading a dynamic URL
   const restaurant = useRestaurantMenu(id); // custom hook created to fetch the restaurant menu details.
+  const dispatch = useDispatch();
+
+  const handleAddItem = (item) => {
+    dispatch(addItem(item)); // dispatch(action-->addItem("item name"))
+  };
 
   return !restaurant ? (
     <Loader />
@@ -108,7 +115,10 @@ function RestaurantMenu() {
                           }
                           alt="image"
                         />
-                        <button className="bg-orange-400 p-1 rounded-md px-3 text-white flex justify-center items-center font-bold gap-1">
+                        <button
+                          className="bg-orange-400 p-1 rounded-md px-3 text-white flex justify-center items-center font-bold gap-1"
+                          onClick={() => handleAddItem(item)}
+                        >
                           <i class="fa-solid fa-cart-shopping"></i>
                           <p>ADD</p>
                         </button>

@@ -16,6 +16,8 @@ import Loader from "./Components/Loader";
 import Login from "./Components/Login";
 import Register from "./Components/Register";
 import UserContext from "./Contexts/UserContext";
+import { Provider } from "react-redux";
+import store from "./utils/store";
 
 // We are lazy loading the Instamart so don't import like this
 // import Instamart from "./Components/Instamart";
@@ -36,10 +38,12 @@ function AppLayout() {
 
   return (
     <>
-      <UserContext.Provider value={{ user: userData, setUser: setUserData }}>
-        <Header />
-        <Outlet />
-      </UserContext.Provider>
+      <Provider store={store}> 
+        <UserContext.Provider value={{ user: userData, setUser: setUserData }}>
+          <Header />
+          <Outlet />
+        </UserContext.Provider>
+      </Provider>
     </>
   );
 }
