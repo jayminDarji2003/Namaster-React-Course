@@ -55,7 +55,7 @@ function Search({ restaurantData }) {
           SEARCH
         </button>
       </div>
-
+{/* 
       <div>
         <input
           type="text"
@@ -68,7 +68,7 @@ function Search({ restaurantData }) {
             });
           }}
         />
-      </div>
+      </div> */}
 
       <div className="flex flex-wrap justify-center">
         {searchPerformed && filteredRestaurants.length === 0 ? (
