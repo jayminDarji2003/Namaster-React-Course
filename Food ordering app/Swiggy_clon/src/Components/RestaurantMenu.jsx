@@ -103,7 +103,7 @@ function RestaurantMenu() {
                           {item?.card?.info?.description}
                         </p>
                         <p className="mt-5 font-bold ">
-                          Price : ₹{(item?.card?.info?.price / 100).toFixed(0)}
+                          Price : ₹{(item?.card?.info?.price / 100)}
                         </p>
                       </div>
 

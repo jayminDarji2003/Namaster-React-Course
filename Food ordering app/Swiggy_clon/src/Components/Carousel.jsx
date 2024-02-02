@@ -26,7 +26,7 @@ const Carousel = ({ food }) => {
     return (
         <>
             <div className="container mx-auto overflow-hidden relative">
-                <h1 className='text-2xl font-bold p-10'>What's on your mind?</h1>
+                <h1 className='pt-11 text-xl font-bold lg:p-10 lg:text-2xl'>What's on your mind?</h1>
                 <div
                     ref={carouselRef}
                     className="flex items-center space-x-4 overflow-x-hidden overflow-y-hidden p-4"
@@ -61,3 +61,4 @@ const Carousel = ({ food }) => {
 };
 
 export default Carousel;
+

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { SWIGGY_API_2 } from "../config";
+import { SWIGGY_D_API_2, SWIGGY_M_API } from "../config";
 
 const useRestaurant = () => {
   const [restaurant, setRestaurant] = useState(null);
@@ -9,7 +9,7 @@ const useRestaurant = () => {
   }, []);
 
   async function getRestaurant() {
-    const data = await fetch(SWIGGY_API_2); // fetching the data from the swiggy api
+    const data = await fetch(SWIGGY_D_API_2); // fetching the data from the swiggy api
     const resData = await data.json(); // converting the data to json format
     // console.log(resData);
     setRestaurant(resData); // updating the restaurant
@@ -19,3 +19,6 @@ const useRestaurant = () => {
 };
 
 export default useRestaurant;
+
+
+

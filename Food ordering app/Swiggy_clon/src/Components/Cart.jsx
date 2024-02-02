@@ -1,17 +1,23 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import UserContext from "../Contexts/UserContext";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RESTAURANT_MENU_FOOD_IMG } from "../config";
+import { clearCart } from "../utils/cartSlice";
 
 function Cart() {
   const { user } = useContext(UserContext);
   const cartItem = useSelector((store) => store.cart.items);
+  const dispatch = useDispatch();
 
-  return (
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
+
+  return ( 
     <>
       {cartItem.length === 0 ? (
-        <div className="flex justify-center items-center flex-col h-screen w-screen">
+        <div className="flex  items-center flex-col h-screen w-screen">
           <img src="empty_cart.png" alt="image" className="h-96" />
           <p className="text-xs font-bold text-gray-500 mt-3">
             Hello, {user.name}
@@ -23,22 +29,48 @@ function Cart() {
         </div>
       ) : (
         <div>
-          <p className="text-center my-4 font-bold text-2xl text-gray-600">Cart page</p>
+          <p className="text-center my-4 font-bold text-2xl text-gray-600">
+            Cart page
+          </p>
+          <p className="text-center font-bold">
+            {cartItem.length} items added to your cart.
+          </p>
+          <div className="flex justify-center items-center">
+            <button
+              className="bg-orange-400 p-2 rounded-md m-2 font-semibold"
+              onClick={() => handleClearCart()}
+            >
+              Clear cart
+            </button>
+          </div>
           {cartItem.map((item, index) => (
-            <div key={index} className="border-2 container mx-auto my-5 p-5 flex justify-between items-center px-20 rounded-lg">
-              <div className="flex flex-col justify-center items-center">
+            <div
+              key={index}
+              className="border-2 container mx-auto my-5 p-5 flex justify-between items-center px-20 rounded-lg"
+            >
+              <div className="">
                 <img
                   className="w-36 h-32"
                   src={RESTAURANT_MENU_FOOD_IMG + item?.card?.info?.imageId}
                   alt="image"
                 />
-                <p className="font-bold py-2">{item?.card?.info?.name}</p>
+                <p className="text-lg font-bold py-2">
+                  {item?.card?.info?.name}
+                </p>
+                <p className="font-bold py-2">
+                  Price : {item?.card?.info?.price / 100}
+                </p>
               </div>
               <div>
                 <div className="flex gap-2 items-center border p-1">
-                  <button className="bg-gray-300 px-3 font-bold text-2xl">+</button>
-                  <p className="font-bold text-2xl">1</p> {/* Added className attribute */}
-                  <button className="bg-gray-300 px-3 font-bold text-2xl">-</button>
+                  <button className="bg-gray-300 px-3 font-bold text-2xl">
+                    +
+                  </button>
+                  <p className="font-bold text-2xl">1</p>{" "}
+                  {/* Added className attribute */}
+                  <button className="bg-gray-300 px-3 font-bold text-2xl">
+                    -
+                  </button>
                 </div>
               </div>
             </div>

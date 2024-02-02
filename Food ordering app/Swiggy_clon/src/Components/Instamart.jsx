@@ -10,7 +10,7 @@ const Section = ({ title, description, isVisible, setIsVisible }) => {
   }
 
   return (
-    <div className="border-2 border-black p-2 mx-10 my-3 rounded-m">
+    <div className="border-2 border-black p-2 container mx-auto my-4 rounded-m">
       <h1 className="font-bold text-lg">{title}</h1>
       <button
         onClick={handleBtn}
