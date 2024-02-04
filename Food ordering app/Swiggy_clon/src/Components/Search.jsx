@@ -39,23 +39,24 @@ function Search({ restaurantData }) {
 
   return (
     <>
-      <div className="w-96 mt-10 p-5 m-auto flex items-center justify-center bg-orange-400 gap-5 rounded-md">
+      <div className="w-96 mt-10 p-5 m-auto flex items-center justify-center gap-2 rounded-md shadow-lg bg-white">
         <input
-          className="p-2"
+          className="p-2 outline-none rounded-md placeholder-gray-500 ring-2 ring-orange-400 focus:ring-orange-400"
           type="text"
-          placeholder="search restaurant"
+          placeholder="Search restaurant"
           value={searchTxt}
           onChange={(e) => setSearchTxt(e.target.value)}
           onKeyDown={handleKeyPress}
         />
         <button
-          className="bg-white p-2 w-20 font-bold text-gray-600"
+          className="bg-orange-400 p-2 px-4 rounded-md text-white font-bold hover:bg-orange-500 transition duration-300"
           onClick={() => handleSearch(searchTxt)}
         >
           SEARCH
         </button>
       </div>
-{/* 
+
+      {/* 
       <div>
         <input
           type="text"

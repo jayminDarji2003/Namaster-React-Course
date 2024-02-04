@@ -6,19 +6,33 @@ const cartSlice = createSlice({
         items: [],
     },
     reducers: {  // modify our state
-        addItem: (state, action) => {   // add to cart Reducer function
-            state.items.push(action.payload)
+        addItem: (state, action) => {
+            state.items.push({ ...action.payload, quantity: 1 }); // Add quantity field
         },
         removeItem: (state, action) => {
             state.items.pop()
         },
         clearCart: (state) => {  // clear cart Reducer function
             state.items = [];  // making state empty
-        }
+        }, incrementItem: (state, action) => { // new reducer to handle item increment
+            state.items[action.payload].quantity++;
+        },
+        decrementItem: (state, action) => { // new reducer to handle item decrement
+            if (state.items[action.payload].quantity > 1) {
+                state.items[action.payload].quantity--;
+            } else {
+                state.items.splice(action.payload, 1); // Remove item if quantity is 1
+            }
+        },
     }
 })
 
-export const { addItem, removeItem, clearCart } = cartSlice.actions;
+export const {
+    addItem,
+    removeItem,
+    clearCart,
+    incrementItem,
+    decrementItem, } = cartSlice.actions;
 
 export default cartSlice.reducer;  // This is "reducer" not "reducers", remember this
 

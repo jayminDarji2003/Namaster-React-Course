@@ -3,7 +3,7 @@ import { useContext } from "react";
 import UserContext from "../Contexts/UserContext";
 import { useDispatch, useSelector } from "react-redux";
 import { RESTAURANT_MENU_FOOD_IMG } from "../config";
-import { clearCart } from "../utils/cartSlice";
+import { clearCart, incrementItem, decrementItem } from "../utils/cartSlice"; // import new action creators
 
 function Cart() {
   const { user } = useContext(UserContext);
@@ -14,7 +14,15 @@ function Cart() {
     dispatch(clearCart());
   };
 
-  return ( 
+  const handleIncrementItem = (index) => { // new function to handle item increment
+    dispatch(incrementItem(index));
+  };
+
+  const handleDecrementItem = (index) => { // new function to handle item decrement
+    dispatch(decrementItem(index));
+  };
+
+  return (
     <>
       {cartItem.length === 0 ? (
         <div className="flex  items-center flex-col h-screen w-screen">
@@ -63,12 +71,18 @@ function Cart() {
               </div>
               <div>
                 <div className="flex gap-2 items-center border p-1">
-                  <button className="bg-gray-300 px-3 font-bold text-2xl">
+                  <button
+                    className="bg-gray-300 px-3 font-bold text-2xl"
+                    onClick={() => handleIncrementItem(index)} // call handleIncrementItem function
+                  >
                     +
                   </button>
-                  <p className="font-bold text-2xl">1</p>{" "}
-                  {/* Added className attribute */}
-                  <button className="bg-gray-300 px-3 font-bold text-2xl">
+                  <p className="font-bold text-2xl">{item.quantity}</p>{" "}
+                  {/* Display item quantity */}
+                  <button
+                    className="bg-gray-300 px-3 font-bold text-2xl"
+                    onClick={() => handleDecrementItem(index)} // call handleDecrementItem function
+                  >
                     -
                   </button>
                 </div>
