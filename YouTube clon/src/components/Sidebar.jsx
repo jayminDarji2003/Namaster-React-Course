@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 const SidebarItem = ({ iconClass, text }) => {
   return (
-    <div className="flex items-center py-3 px-2 cursor-pointer rounded-lg gap-5 hover:bg-gray-900">
+    <div className="flex items-center py-3 px-2 cursor-pointer rounded-lg gap-5 hover:bg-[#272727]">
       <i className={`fa-solid ${iconClass}`}></i>
       <p>{text}</p>
     </div>
@@ -12,9 +12,9 @@ const SidebarItem = ({ iconClass, text }) => {
 };
 
 const Sidebar = () => {
-  const isMenuOpenNew = useSelector((store) => store.app.isMenuOpen);
+  const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
 
-  if (!isMenuOpenNew) {
+  if (!isMenuOpen) {
     return (
       <div className="pl-3 text-white mb-6">
         <div>

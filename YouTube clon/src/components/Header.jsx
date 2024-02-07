@@ -6,7 +6,7 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const toggleMenuHandler = () => {
-    dispatch(toggleMenu())
+    dispatch(toggleMenu());
   };
 
   return (

@@ -3,7 +3,7 @@ import AppSlice from "./AppSlice";
 
 const store = configureStore({
     reducer: {
-        app : AppSlice
+        app: AppSlice,
     }
 })
 
