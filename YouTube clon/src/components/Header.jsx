@@ -1,6 +1,14 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { toggleMenu } from "../utils/AppSlice";
 
 const Header = () => {
+  const dispatch = useDispatch();
+
+  const toggleMenuHandler = () => {
+    dispatch(toggleMenu())
+  };
+
   return (
     <header className="flex bg-black h-16 lg:px-5 text-white items-center justify-between">
       <div className="flex items-center lg:gap-4">
@@ -10,7 +18,8 @@ const Header = () => {
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
-          class="w-6 h-6"
+          className="w-6 h-6 cursor-pointer"
+          onClick={toggleMenuHandler}
         >
           <path
             strokeLinecap="round"
