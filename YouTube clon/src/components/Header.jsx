@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/AppSlice";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -10,7 +11,7 @@ const Header = () => {
   };
 
   return (
-    <header className="flex bg-black h-16 lg:px-5 text-white items-center justify-between">
+    <header className="flex bg-black h-16 lg:px-5 text-white items-center justify-between sticky top-0 z-50">
       <div className="flex items-center lg:gap-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +29,9 @@ const Header = () => {
           />
         </svg>
 
-        <img src="/ytlogo2.png" className="h-6 w-25" alt="YouTube logo" />
+        <Link to="/">
+          <img src="/ytlogo2.png" className="h-6 w-25" alt="YouTube logo" />
+        </Link>
       </div>
 
       <div className="flex items-center h-8 ">

@@ -1,6 +1,7 @@
 import React from "react";
 import { sidebarItems } from "../constants";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const SidebarItem = ({ iconClass, text }) => {
   return (
@@ -19,7 +20,9 @@ const Sidebar = () => {
       <div className="pl-3 text-white mb-6">
         <div>
           {sidebarItems.map((item, index) => (
-            <SidebarItem key={index} iconClass={item.iconClass} text="" />
+            <Link to="/">
+              <SidebarItem key={index} iconClass={item.iconClass} text="" />
+            </Link>
           ))}
         </div>
       </div>
@@ -30,11 +33,13 @@ const Sidebar = () => {
     <div className="pl-3 w-44 text-white mb-6">
       <div>
         {sidebarItems.map((item, index) => (
-          <SidebarItem
-            key={index}
-            iconClass={item.iconClass}
-            text={item.text}
-          />
+          <Link to="/">
+            <SidebarItem
+              key={index}
+              iconClass={item.iconClass}
+              text={item.text}
+            />
+          </Link>
         ))}
       </div>
     </div>
