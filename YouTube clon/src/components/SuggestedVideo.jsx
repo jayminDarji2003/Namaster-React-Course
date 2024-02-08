@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { YOUTUBE_SUGGESTED_VIDEO_API } from "../constants";
+import { Link } from "react-router-dom";
 
 const SuggestedVideo = () => {
   const [SuggestedVideo, setSuggestedVideo] = useState([]);
@@ -11,7 +12,7 @@ const SuggestedVideo = () => {
   const getSuggestedVideos = async () => {
     const data = await fetch(YOUTUBE_SUGGESTED_VIDEO_API);
     const json = await data.json();
-    console.log(json.items);
+    //console.log(json.items);
     setSuggestedVideo(json?.items);
   };
 
@@ -21,19 +22,23 @@ const SuggestedVideo = () => {
       <div>
         {SuggestedVideo.map((info) => {
           return (
-            <div className=" text-black w-86 my-4 mx-2 flex border border-gray-600 items-center p-2">
-              <img
-                className="rounded-2xl h-20"
-                src={info?.snippet?.thumbnails?.default?.url}
-                alt=""
-              />
-              <div>
-                <p className="font-bold text-white text-md mx-2">
-                {info?.snippet?.title}
-                </p>
-                <p className="font-semibold text-white text-sm mx-2">{info?.snippet?.channelTitle}</p>
+            <Link key={info?.id} to={"/watch?v=" + info.id}>
+              <div className=" text-black w-86 my-4 mx-2 flex border border-gray-600 items-center p-2">
+                <img
+                  className="rounded-2xl h-20"
+                  src={info?.snippet?.thumbnails?.default?.url}
+                  alt=""
+                />
+                <div>
+                  <p className="font-bold text-white text-md mx-2">
+                    {info?.snippet?.title}
+                  </p>
+                  <p className="font-semibold text-white text-sm mx-2">
+                    {info?.snippet?.channelTitle}
+                  </p>
+                </div>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>
