@@ -27,10 +27,10 @@ export const navItemLinks = [
         name: "Music",
     },
     {
-        name: "Lo-fi",
+        name: "Songs",
     },
     {
-        name: "Arijit Singh",
+        name: "Arijit",
     },
     {
         name: "Live",
@@ -51,19 +51,35 @@ export const navItemLinks = [
         name: "CSS",
     },
     {
-        name: "JavaScript",
+        name: "Trending",
     },
     {
-        name: "Tailwind CSS",
+        name: "TailwindCSS",
+    },
+    {
+        name: "PHP",
     },
     {
         name: "Ruby",
     },
     {
-        name: "PHP",
+        name: "C++",
+    },
+    {
+        name: "JavaScript",
+    },
+    {
+        name: "C#",
+    },
+    {
+        name: "Editor",
     },
 ];
 
 const YOUTUBE_API_KEY = "AIzaSyAchkxS61EhuWM3ftW_614cDic0SZi6FjQ";
 
 export const YOUTUBE_POPULAR_VIDEO_API = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=IN&maxResults=50&key=" + YOUTUBE_API_KEY;
+
+export const YOUTUBE_SUGGESTED_VIDEO_API = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&maxResults=50&key=" + YOUTUBE_API_KEY;
+
+export const YOUTUBE_VIDEO_INFO = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=Ks-_Mh1QhMc&key=" + YOUTUBE_API_KEY 

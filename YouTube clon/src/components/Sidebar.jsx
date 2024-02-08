@@ -3,13 +3,13 @@ import { sidebarItems } from "../constants";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-const SidebarItem = ({ iconClass, text }) => {
+const SidebarItem = ({ iconClass, text, color }) => {
   return (
     <div className="flex items-center py-3 px-2 cursor-pointer rounded-lg gap-5 hover:bg-[#272727]">
       <i className={`fa-solid ${iconClass}`}></i>
-      <p>{text}</p>
+      <p className={color}>{text}</p>
     </div>
-  );
+  );  
 };
 
 const Sidebar = () => {
@@ -20,8 +20,13 @@ const Sidebar = () => {
       <div className="pl-3 text-white mb-6">
         <div>
           {sidebarItems.map((item, index) => (
-            <Link to="/">
-              <SidebarItem key={index} iconClass={item.iconClass} text="" />
+            <Link to="/" key={index}>
+              <SidebarItem
+                key={index}
+                iconClass={item.iconClass}
+                text="."
+                color="text-black"
+              />
             </Link>
           ))}
         </div>
@@ -33,7 +38,7 @@ const Sidebar = () => {
     <div className="pl-3 w-44 text-white mb-6">
       <div>
         {sidebarItems.map((item, index) => (
-          <Link to="/">
+          <Link to="/" key={index}>
             <SidebarItem
               key={index}
               iconClass={item.iconClass}
