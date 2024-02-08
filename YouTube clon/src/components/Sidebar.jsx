@@ -35,7 +35,7 @@ const Sidebar = () => {
   }
 
   return (
-    <div className="pl-3 w-44 text-white mb-6">
+    <div className="pl-3 text-white mb-6">
       <div>
         {sidebarItems.map((item, index) => (
           <Link to="/" key={index}>

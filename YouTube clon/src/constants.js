@@ -8,11 +8,11 @@ export const sidebarItems = [
     { iconClass: "fa-clock", text: "Watch Later" },
     { iconClass: "fa-thumbs-up", text: "Liked Videos" },
     { iconClass: "fa-stairs", text: "Trending" },
-    { iconClass: "fa-cart-shopping", text: "Shopping" },
     { iconClass: "fa-music", text: "Music" },
     { iconClass: "fa-film", text: "Film" },
     { iconClass: "fa-star-of-life", text: "Live" },
     { iconClass: "fa-headset", text: "Gaming" },
+    { iconClass: "fa-cart-shopping", text: "ShoppingCart" },
 ];
 
 
@@ -83,3 +83,6 @@ export const YOUTUBE_POPULAR_VIDEO_API = "https://youtube.googleapis.com/youtube
 export const YOUTUBE_SUGGESTED_VIDEO_API = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&maxResults=50&key=" + YOUTUBE_API_KEY;
 
 export const YOUTUBE_VIDEO_INFO = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=Ks-_Mh1QhMc&key=" + YOUTUBE_API_KEY 
+
+
+export const YOUTUBE_SEARCH_API = "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q= ";
