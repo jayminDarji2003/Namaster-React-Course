@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Body from "./components/Body";
 import WatchVideoPage from "./components/WatchVideoPage";
 import MainContainer from "./components/MainContainer";
+import YoutubeChannelPage from "./components/YoutubeChannelPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Body />}>
             <Route index element={<MainContainer />} />
             <Route path="watch" element={<WatchVideoPage />} />
+            <Route path="channel" element={<YoutubeChannelPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
