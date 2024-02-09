@@ -1,14 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/AppSlice";
 import { Link } from "react-router-dom";
 import { YOUTUBE_SEARCH_API } from "../constants";
+import { cacheResults } from "../utils/searchSlice";
 
 const Header = () => {
   const [searchQuery, setSearchQeary] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const dispatch = useDispatch();
+
+  const searchCache = useSelector((store) => store.search);
+  /*
+      How our cache looks like
+
+      {
+          "iphone": ["iphone 11", "iphone 13"],
+          "iphone 14": ["iphone 14 pro", "iphone 14 pro max"]
+      }
+  */
 
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
@@ -22,7 +33,13 @@ const Header = () => {
     // but if the difference between two API calls is less than <200
     // decline the API call
     const timer = setTimeout(() => {
-      getSearchSuggestions();
+      if (searchCache[searchQuery]) {
+        // check if the searchQuery is present in cache or not
+        setSuggestions(searchCache[searchQuery]); // if present then return the value of that searchQuery
+      } else {
+        // if not present in the cache make a new API
+        getSearchSuggestions();
+      }
     }, 200);
 
     return () => {
@@ -31,10 +48,20 @@ const Header = () => {
   }, [searchQuery]);
 
   const getSearchSuggestions = async () => {
+    //console.log("fetching the data...");
     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
     const json = await data.json();
-    //console.log(json[1]);
     setSuggestions(json[1]);
+
+    // update cache
+    // here we are updating the cache with the new data.
+    // key ===> searchQuery
+    // value ==> json[1]
+    dispatch(
+      cacheResults({
+        [searchQuery]: json[1],
+      })
+    );
   };
 
   return (
