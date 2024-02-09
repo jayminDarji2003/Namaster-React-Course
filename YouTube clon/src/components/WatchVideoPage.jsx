@@ -20,7 +20,7 @@ const WatchVideoPage = () => {
   const getVideoInfo = async () => {
     const data = await fetch(url);
     const json = await data.json();
-    //console.log(json)
+    console.log(json);
     setVideoInfo(json?.items[0]);
   };
 
@@ -39,28 +39,37 @@ const WatchVideoPage = () => {
         <div className="my-4">
           <p className="font-bold text-xl">{videoInfo?.snippet?.title}</p>
           <div className="flex gap-5 my-5 items-center">
-            <p className="font-bold text-2xl">{videoInfo?.snippet?.channelTitle}</p>
-            <button className="bg-white p-2 px-3 rounded-full text-black font-bold">
-              Subscribe
-            </button>
+            <div className="flex gap-5">
+              <p className="font-bold text-2xl">
+                {videoInfo?.snippet?.channelTitle}
+              </p>
+              <button className="bg-white p-2 px-3 rounded-full text-black font-bold">
+                Subscribe
+              </button>
+            </div>
+            <div className="flex gap-5 text-xl flex-wrap">
+              <div className="flex items-center gap-2 text-md">
+                <i class="fa-solid fa-eye"></i>
+                <p>{videoInfo?.statistics?.viewCount}</p>
+              </div>
+              <div className="flex items-center gap-2 text-md">
+                <i class="fa-solid fa-thumbs-up"> </i>
+                <p>{videoInfo?.statistics?.likeCount}</p>
+              </div>
+              <div className="flex items-center gap-2 text-md">
+                <i class="fa-solid fa-star"></i>
+                <p>{videoInfo?.statistics?.favoriteCount}</p>
+              </div>
+              <div className="flex items-center gap-2 text-md">
+                <i class="fa-solid fa-comment"></i>
+                <p>{videoInfo?.statistics?.commentCount}</p>
+              </div>
+            </div>
           </div>
-          <div className="flex gap-5 text-xl flex-wrap">
-            <div className="flex items-center gap-2 text-md">
-              <i class="fa-solid fa-eye"></i>
-              <p>{videoInfo?.statistics?.viewCount}</p>
-            </div>
-            <div className="flex items-center gap-2 text-md">
-              <i class="fa-solid fa-thumbs-up"> </i>
-              <p>{videoInfo?.statistics?.likeCount}</p>
-            </div>
-            <div className="flex items-center gap-2 text-md">
-              <i class="fa-solid fa-star"></i>
-              <p>{videoInfo?.statistics?.favoriteCount}</p>
-            </div>
-            <div className="flex items-center gap-2 text-md">
-              <i class="fa-solid fa-comment"></i>
-              <p>{videoInfo?.statistics?.commentCount}</p>
-            </div>
+
+          <div className="my-5 p-3 lg:w-[800px] border-2 border-gray-600 rounded-2xl">
+            <p className="font-bold text-lg my-1">Description</p>
+            <p>{videoInfo?.snippet?.description}</p>
           </div>
         </div>
       </div>
