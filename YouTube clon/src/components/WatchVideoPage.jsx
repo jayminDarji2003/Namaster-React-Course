@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { closeMenu } from "../utils/AppSlice";
 import { useSearchParams } from "react-router-dom";
 import SuggestedVideo from "./SuggestedVideo";
+import CommentContainer from "./Comments";
 
 const WatchVideoPage = () => {
   const [searchParams] = useSearchParams();
@@ -15,12 +16,16 @@ const WatchVideoPage = () => {
   useEffect(() => {
     dispatch(closeMenu());
     getVideoInfo();
+  }, [searchParams]);
+
+  useEffect(() => {
+    getVideoInfo();
   }, []);
 
   const getVideoInfo = async () => {
     const data = await fetch(url);
     const json = await data.json();
-    console.log(json);
+   // console.log(json);
     setVideoInfo(json?.items[0]);
   };
 
@@ -67,12 +72,17 @@ const WatchVideoPage = () => {
             </div>
           </div>
 
+          {/* description section  */}
           <div className="my-5 p-3 lg:w-[800px] border-2 border-gray-600 rounded-2xl">
             <p className="font-bold text-lg my-1">Description</p>
             <p>{videoInfo?.snippet?.description}</p>
           </div>
+
+          {/* comment section  */}
+          <CommentContainer />
         </div>
       </div>
+
       <div className="">
         <SuggestedVideo />
       </div>

@@ -17,13 +17,13 @@ const SuggestedVideo = () => {
   };
 
   return (
-    <div className="border-2 border-gray-600 p-2 bg-black rounded-2xl">
+    <div className="border-2 border-gray-600 p-2 bg-black rounded-2xl ">
       <p className="text-2xl font-bold text-center mb-4">Suggested Videos</p>
       <div>
         {SuggestedVideo.map((info) => {
           return (
             <Link key={info?.id} to={"/watch?v=" + info.id}>
-              <div className=" text-black w-86 my-4 mx-2 flex border border-gray-600 items-center p-2">
+              <div className=" text-black w-86 my-4 mx-2 flex border border-gray-600 items-center p-2 rounded-lg">
                 <img
                   className="rounded-2xl h-20"
                   src={info?.snippet?.thumbnails?.default?.url}

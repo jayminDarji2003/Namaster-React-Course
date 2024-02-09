@@ -114,9 +114,9 @@ const Header = () => {
       </div>
 
       <div className="text-xl flex lg:gap-7 gap-2">
-        <i className="fa-solid fa-video hidden md:flex"></i>
-        <i className="fa-solid fa-bell hidden md:flex"></i>
-        <i className="fa-solid fa-user"></i>
+        <i className="fa-solid fa-video hidden md:flex cursor-pointer"></i>
+        <i className="fa-solid fa-bell hidden md:flex cursor-pointer"></i>
+        <i className="fa-solid fa-user cursor-pointer "></i>
       </div>
     </header>
   );

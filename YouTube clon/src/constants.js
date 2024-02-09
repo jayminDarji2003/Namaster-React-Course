@@ -82,7 +82,104 @@ export const YOUTUBE_POPULAR_VIDEO_API = "https://youtube.googleapis.com/youtube
 
 export const YOUTUBE_SUGGESTED_VIDEO_API = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&maxResults=50&key=" + YOUTUBE_API_KEY;
 
-export const YOUTUBE_VIDEO_INFO = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=Ks-_Mh1QhMc&key=" + YOUTUBE_API_KEY 
+export const YOUTUBE_VIDEO_INFO = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=Ks-_Mh1QhMc&key=" + YOUTUBE_API_KEY
 
 
 export const YOUTUBE_SEARCH_API = "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q= ";
+
+
+
+export const comments = [
+
+    {
+        name: "jaymin",
+        text: "this is a message about jaymin",
+        replay: [
+            {
+                name: "jaymin",
+                text: "this is a message about jaymin",
+                replay: []
+            },
+            {
+                name: "jaymin",
+                text: "this is a message about jaymin",
+                replay: [
+                    {
+                        name: "jaymin",
+                        text: "this is a message about jaymin",
+                        replay: [{
+                            name: "jaymin",
+                            text: "this is a message about jaymin",
+                            replay: [{
+                                name: "jaymin",
+                                text: "this is a message about jaymin",
+                                replay: [{
+                                    name: "jaymin",
+                                    text: "this is a message about jaymin",
+                                    replay: [{
+                                        name: "jaymin",
+                                        text: "this is a message about jaymin",
+                                        replay: [{
+                                            name: "jaymin",
+                                            text: "this is a message about jaymin",
+                                            replay: []
+                                        },]
+                                    },]
+                                },]
+                            },]
+                        },]
+                    }, {
+                        name: "jaymin",
+                        text: "this is a message about jaymin",
+                        replay: []
+                    },
+                ]
+            },
+            {
+                name: "jaymin",
+                text: "this is a message about jaymin",
+                replay: [{
+                    name: "jaymin",
+                    text: "this is a message about jaymin",
+                    replay: []
+                }, {
+                    name: "jaymin",
+                    text: "this is a message about jaymin",
+                    replay: []
+                }, {
+                    name: "jaymin",
+                    text: "this is a message about jaymin",
+                    replay: []
+                },]
+            }, {
+                name: "jaymin",
+                text: "this is a message about jaymin",
+                replay: []
+            }, {
+                name: "jaymin",
+                text: "this is a message about jaymin",
+                replay: []
+            },
+        ]
+    },
+    {
+        name: "jaymin",
+        text: "this is a message about jaymin",
+        replay: []
+    },
+    {
+        name: "jaymin",
+        text: "this is a message about jaymin",
+        replay: []
+    },
+    {
+        name: "jaymin",
+        text: "this is a message about jaymin",
+        replay: []
+    },
+    {
+        name: "jaymin",
+        text: "this is a message about jaymin",
+        replay: []
+    },
+]
