@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { closeMenu } from "../utils/AppSlice";
 import { useSearchParams } from "react-router-dom";
 import SuggestedVideo from "./SuggestedVideo";
-import CommentContainer from "./Comments";
+import CommentContainer from "./CommentContainer";
 
 const WatchVideoPage = () => {
   const [searchParams] = useSearchParams();
@@ -13,6 +13,7 @@ const WatchVideoPage = () => {
   const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&key=AIzaSyAchkxS61EhuWM3ftW_614cDic0SZi6FjQ`;
   const [videoInfo, setVideoInfo] = useState(null);
 
+
   useEffect(() => {
     dispatch(closeMenu());
     getVideoInfo();
@@ -20,12 +21,12 @@ const WatchVideoPage = () => {
 
   useEffect(() => {
     getVideoInfo();
-  }, []);
+  }, [searchParams]);
 
   const getVideoInfo = async () => {
     const data = await fetch(url);
     const json = await data.json();
-   // console.log(json);
+    // console.log(json);
     setVideoInfo(json?.items[0]);
   };
 
@@ -79,7 +80,7 @@ const WatchVideoPage = () => {
           </div>
 
           {/* comment section  */}
-          <CommentContainer />
+          <CommentContainer videoId={videoId}/>
         </div>
       </div>
 
