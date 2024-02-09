@@ -5,6 +5,7 @@ import { closeMenu } from "../utils/AppSlice";
 import { useSearchParams } from "react-router-dom";
 import SuggestedVideo from "./SuggestedVideo";
 import CommentContainer from "./CommentContainer";
+import LiveChat from "./LiveChat";
 
 const WatchVideoPage = () => {
   const [searchParams] = useSearchParams();
@@ -12,7 +13,6 @@ const WatchVideoPage = () => {
   const videoId = searchParams.get("v");
   const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&key=AIzaSyAchkxS61EhuWM3ftW_614cDic0SZi6FjQ`;
   const [videoInfo, setVideoInfo] = useState(null);
-
 
   useEffect(() => {
     dispatch(closeMenu());
@@ -80,7 +80,11 @@ const WatchVideoPage = () => {
           </div>
 
           {/* comment section  */}
-          <CommentContainer videoId={videoId}/>
+          <CommentContainer videoId={videoId} />
+
+          {/* Live chat section   */}
+          <p className="font-bold text-xl">Live Chat</p>
+          <LiveChat />
         </div>
       </div>
 

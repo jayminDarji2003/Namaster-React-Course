@@ -15,7 +15,6 @@ export const sidebarItems = [
     { iconClass: "fa-cart-shopping", text: "ShoppingCart" },
 ];
 
-
 export const navItemLinks = [
     {
         name: "All",
@@ -76,6 +75,8 @@ export const navItemLinks = [
     },
 ];
 
+
+
 const YOUTUBE_API_KEY = "AIzaSyAchkxS61EhuWM3ftW_614cDic0SZi6FjQ";
 
 export const YOUTUBE_POPULAR_VIDEO_API = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=IN&maxResults=50&key=" + YOUTUBE_API_KEY;
@@ -88,6 +89,10 @@ export const YOUTUBE_VIDEO_INFO = "https://youtube.googleapis.com/youtube/v3/vid
 export const YOUTUBE_SEARCH_API = "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q= ";
 
 export const YOUTUBE_CHANNEL_API = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=UC_x5XG1OV2P6uZZ5FSM9Ttw&key=" + YOUTUBE_API_KEY
+
+
+// youtube video categories 
+// https://youtube.googleapis.com/youtube/v3/videoCategories?part=snippet&regionCode=IN&key=AIzaSyAchkxS61EhuWM3ftW_614cDic0SZi6FjQ
 
 
 
@@ -185,3 +190,4 @@ export const comments = [
         replay: []
     },
 ]
+
