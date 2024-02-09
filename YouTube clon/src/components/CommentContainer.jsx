@@ -1,28 +1,51 @@
 import React, { useEffect, useState } from "react";
 
-const Comment = ({ comments }) => {
-  //console.log(comments[0]?.snippet?.topLevelComment.snippet.authorDisplayName);
+const Comment = ({ comment }) => {
+  return (
+    <div className="flex border border-gray-600 my-5 p-4 gap-4 rounded-xl">
+      <div>
+        <img
+          className=" border-2 rounded-full border-red-600"
+          src={
+            comment?.snippet?.topLevelComment?.snippet?.authorProfileImageUrl
+          }
+          alt="img"
+        />
+      </div>
+      <div className="flex flex-col">
+        <p className="font-bold">
+          {comment?.snippet?.topLevelComment?.snippet?.authorDisplayName}
+        </p>
+        <p className="text-sm font-semibold">
+          {comment?.snippet?.topLevelComment?.snippet?.textDisplay}
+        </p>
 
+        <div className="flex my-2 gap-3 items-center text-lg">
+          <p className="">
+            <i class="fa-regular fa-thumbs-up"></i>{" "}
+            {comment?.snippet?.topLevelComment?.snippet?.likeCount}
+          </p>
+          <p>
+            <i class="fa-regular fa-thumbs-down"></i> 0
+          </p>
+          <p>
+            <i class="fa-solid fa-heart " style={{ color: "#f50000" }}></i>
+          </p>
+          <p className="text-sm font-bold ml-4">
+            Replay : {comment?.snippet?.totalReplyCount}{" "}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const CommentList = ({ comments }) => {
   return (
     <>
       {comments.map((comment) => (
-        <div key={comment.id} className="flex border my-5 p-4">
-          <div className="rounded-full">
-            <img
-            className=""
-              src={
-                comment?.snippet?.topLevelComment?.snippet
-                  ?.authorProfileImageUrl
-              }
-              alt=""
-            />
-          </div>
-          <div className="flex flex-col">
-            <p>
-              {comment?.snippet?.topLevelComment?.snippet?.authorDisplayName}
-            </p>
-            <p>{comment?.snippet?.topLevelComment?.snippet?.textDisplay}</p>
-          </div>
+        <div key={comment.id}>
+          <Comment comment={comment} />
         </div>
       ))}
     </>
@@ -35,7 +58,7 @@ const CommentContainer = ({ videoId }) => {
 
   useEffect(() => {
     getComments();
-  }, []);
+  }, [videoUrl]);
 
   const getComments = async () => {
     const comments = await fetch(videoUrl);
@@ -44,16 +67,13 @@ const CommentContainer = ({ videoId }) => {
     setvideoComments(json.items);
   };
 
-  // console.log(videoComments?.length)
-  // console.log(videoComments)
-
   return (
     <div className="my-5 p-3 lg:w-[800px] border-2 border-gray-600 rounded-2xl">
       <p className="font-bold text-lg my-1 text-white">
         Comments - {videoComments?.length}
       </p>
 
-      {videoComments && <Comment comments={videoComments} />}
+      {videoComments && <CommentList comments={videoComments} />}
     </div>
   );
 };
