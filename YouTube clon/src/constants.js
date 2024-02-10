@@ -1,18 +1,73 @@
 export const sidebarItems = [
-    { iconClass: "fa-house", text: "Home" },
-    { iconClass: "fa-video", text: "Shorts" },
-    { iconClass: "fa-box", text: "Subscriber" },
-    { iconClass: "fa-user", text: "Your Channel" },
-    { iconClass: "fa-clock", text: "History" },
-    { iconClass: "fa-camera", text: "Videos" },
-    { iconClass: "fa-clock", text: "Watch Later" },
-    { iconClass: "fa-thumbs-up", text: "Liked Videos" },
-    { iconClass: "fa-stairs", text: "Trending" },
-    { iconClass: "fa-music", text: "Music" },
-    { iconClass: "fa-film", text: "Film" },
-    { iconClass: "fa-star-of-life", text: "Live" },
-    { iconClass: "fa-headset", text: "Gaming" },
-    { iconClass: "fa-cart-shopping", text: "ShoppingCart" },
+    {
+        iconClass: "fa-house",
+        text: "Home",
+        redirect: ""
+    },
+    {
+        iconClass: "fa-video",
+        text: "Shorts",
+        redirect: "suggested"
+    },
+    {
+        iconClass: "fa-box",
+        text: "Subscriber",
+        redirect: "suggested"
+    },
+    {
+        iconClass: "fa-user",
+        text: "Your Channel", redirect: "suggested"
+    },
+    {
+        iconClass: "fa-clock",
+        text: "History",
+        redirect: "suggested"
+    },
+    {
+        iconClass: "fa-camera",
+        text: "Videos",
+        redirect: "suggested"
+    },
+    {
+        iconClass: "fa-clock",
+        text: "Watch Later",
+        redirect: "suggested"
+    },
+    {
+        iconClass: "fa-thumbs-up",
+        text: "Liked Videos",
+        redirect: "suggested"
+    },
+    {
+        iconClass: "fa-stairs",
+        text: "Trending",
+        redirect: "suggested"
+    },
+    {
+        iconClass: "fa-music",
+        text: "Music",
+        redirect: "suggested"
+    },
+    {
+        iconClass: "fa-film",
+        text: "Film",
+        redirect: "suggested"
+    },
+    {
+        iconClass: "fa-star-of-life",
+        text: "Live",
+        redirect: "suggested"
+    },
+    {
+        iconClass: "fa-headset",
+        text: "Gaming",
+        redirect: "suggested"
+    },
+    {
+        iconClass: "fa-cart-shopping",
+        text: "Shopping Cart",
+        redirect: "suggested"
+    },
 ];
 
 export const navItemLinks = [

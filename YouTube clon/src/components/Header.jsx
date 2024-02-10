@@ -65,8 +65,8 @@ const Header = () => {
   };
 
   return (
-    <header className="flex bg-black h-16 lg:px-5 text-white items-center justify-between sticky top-0 z-50">
-      <div className="flex items-center lg:gap-4 h-6">
+    <header className="flex bg-black h-16 lg:px-5 text-white items-center justify-between sticky top-0 z-50 px-2">
+      <div className="flex items-center lg:gap-4 gap-1 h-6">
         <i
           className="fa-solid fa-bars text-xl cursor-pointer"
           onClick={toggleMenuHandler}
@@ -81,7 +81,7 @@ const Header = () => {
         <div className="flex items-center border-2 border-gray-600 rounded-full p-1 px-4 hover:border-gray-400">
           <input
             type="text"
-            className="bg-transparent w-[100px] sm:w-[300px] lg:w-[500px] h-8  text-sm focus:outline-none"
+            className="bg-transparent w-[150px] sm:w-[300px] lg:w-[500px] h-8  text-sm focus:outline-none"
             placeholder="search"
             value={searchQuery}
             onChange={(e) => setSearchQeary(e.target.value)}
@@ -113,10 +113,12 @@ const Header = () => {
         )}
       </div>
 
-      <div className="text-xl flex lg:gap-7 gap-2">
+      <div className="text-xl lg:gap-7 gap-2 lg:flex hidden items-center">
         <i className="fa-solid fa-video hidden md:flex cursor-pointer"></i>
         <i className="fa-solid fa-bell hidden md:flex cursor-pointer"></i>
-        <i className="fa-solid fa-user cursor-pointer "></i>
+        <Link to="/profile">
+          <i className="fa-solid fa-user cursor-pointer "></i>
+        </Link>
       </div>
     </header>
   );

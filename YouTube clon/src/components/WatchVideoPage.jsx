@@ -6,6 +6,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import SuggestedVideo from "./SuggestedVideo";
 import CommentContainer from "./CommentContainer";
 import LiveChat from "./LiveChat";
+import CountFormatter from "./CountFormatter";
 
 const WatchVideoPage = () => {
   const [searchParams] = useSearchParams();
@@ -32,10 +33,10 @@ const WatchVideoPage = () => {
   };
 
   return (
-    <div className="bg-black text-white w-screen flex lg:m-8 my-5 gap-5">
+    <div className="bg-black text-white flex flex-col lg:flex-row lg:m-8 my-5 gap-5 container">
       <div>
         <iframe
-          className="lg:h-[500px] lg:w-[900px] rounded-2xl"
+          className="w-80 h-56 lg:h-[500px] lg:w-[900px] rounded-2xl"
           src={`https://www.youtube.com/embed/${videoId}?si=y7YYFvH5PISwPjgU`}
           title="YouTube video player"
           frameBorder="0"
@@ -44,44 +45,55 @@ const WatchVideoPage = () => {
         ></iframe>
 
         <div className="my-4">
-          <p className="font-bold text-xl">{videoInfo?.snippet?.title}</p>
-          <div className="flex gap-5 my-5 items-center">
-            <div className="flex gap-5">
-              {/* <p className="font-bold text-2xl">
-                {videoInfo?.snippet?.channelTitle}
-              </p> */}
+          <p className="font-bold text-lg max-w-72 md:max-w-full md:text-xl">
+            {videoInfo?.snippet?.title}
+          </p>
+          <div className="flex gap-5 my-5 lg:items-center flex-col md:flex-row">
+            <div className="flex  gap-5  flex-col md:flex-row md:gap-5">
               <Link
                 to={`/channel?v=${videoInfo?.snippet?.channelId}`} // Pass necessary props through URL
                 className="font-bold text-2xl"
               >
                 {videoInfo?.snippet?.channelTitle}
               </Link>
-              <button className="bg-white p-2 px-3 rounded-full text-black font-bold">
+              <button className="bg-white w-60 md:w-40 p-2 px-3 rounded-full text-black font-bold">
                 Subscribe
               </button>
             </div>
-            <div className="flex gap-5 text-xl flex-wrap">
+            <div className="flex gap-5 text-base md:text-xl flex-wrap">
               <div className="flex items-center gap-2 text-md">
                 <i class="fa-solid fa-eye"></i>
-                <p>{videoInfo?.statistics?.viewCount}</p>
+                <CountFormatter
+                  count={videoInfo?.statistics?.viewCount}
+                  name={""}
+                />
               </div>
               <div className="flex items-center gap-2 text-md">
                 <i class="fa-solid fa-thumbs-up"> </i>
-                <p>{videoInfo?.statistics?.likeCount}</p>
+                <CountFormatter
+                  count={videoInfo?.statistics?.likeCount}
+                  name={""}
+                />
               </div>
               <div className="flex items-center gap-2 text-md">
                 <i class="fa-solid fa-star"></i>
-                <p>{videoInfo?.statistics?.favoriteCount}</p>
+                <CountFormatter
+                  count={videoInfo?.statistics?.favoriteCount}
+                  name={""}
+                />
               </div>
               <div className="flex items-center gap-2 text-md">
                 <i class="fa-solid fa-comment"></i>
-                <p>{videoInfo?.statistics?.commentCount}</p>
+                <CountFormatter
+                  count={videoInfo?.statistics?.commentCount}
+                  name={""}
+                />
               </div>
             </div>
           </div>
 
           {/* description section  */}
-          <div className="my-5 p-3 lg:w-[800px] border-2 border-gray-600 rounded-2xl">
+          <div className="my-5 p-3 w-80 lg:w-[800px] border-2 border-gray-600 rounded-2xl overflow-hidden">
             <p className="font-bold text-lg my-1">Description</p>
             <p>{videoInfo?.snippet?.description}</p>
           </div>

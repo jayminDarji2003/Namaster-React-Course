@@ -1,23 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-
-const CountFormatter = ({ count, name }) => {
-  // Convert the view count to a number
-  let formattedViewCount = parseFloat(count);
-
-  // Check if the view count is in millions or thousands and format accordingly
-  if (formattedViewCount >= 1000000) {
-    formattedViewCount = (formattedViewCount / 1000000).toFixed(1) + "m"; // Divide by 1 million and add 'm'
-  } else if (formattedViewCount >= 1000) {
-    formattedViewCount = (formattedViewCount / 1000).toFixed(1) + "k"; // Divide by 1 thousand and add 'k'
-  }
-
-  return (
-    <span>
-      {formattedViewCount} {name} 🚀
-    </span>
-  );
-};
+import CountFormatter from "./CountFormatter";
 
 const YoutubeChannelPage = () => {
   const [searchParams] = useSearchParams();
@@ -39,7 +22,7 @@ const YoutubeChannelPage = () => {
   return (
     <div>
       {channelInfo && (
-        <div>
+        <div className="mb-16">
           <div className="m-4 lg:w-[1275px] flex flex-col lg:flex-row justify-center gap-10">
             <div className="flex justify-center">
               <img
@@ -58,15 +41,15 @@ const YoutubeChannelPage = () => {
               <div className="my-2 flex flex-col font-bold">
                 <CountFormatter
                   count={channelInfo?.statistics?.subscriberCount}
-                  name={"Subscribers"}
+                  name={"Subscribers 🚀"}
                 />
                 <CountFormatter
                   count={channelInfo?.statistics?.videoCount}
-                  name={"Videos"}
+                  name={"Videos 🚀"}
                 />
                 <CountFormatter
                   count={channelInfo?.statistics?.viewCount}
-                  name={"Views"}
+                  name={"Views 🚀"}
                 />
               </div>
             </div>

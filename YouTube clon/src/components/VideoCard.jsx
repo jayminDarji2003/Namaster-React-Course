@@ -5,7 +5,7 @@ const VideoCard = ({ videoInfo }) => {
   const { thumbnails, title,channelTitle } = snippet;
 
   return (
-    <div className="border-2 text-white m-5 w-72 rounded-lg">
+    <div className="border-2 text-white m-5 w-56 lg:w-72 rounded-lg">
       <img className="text-center rounded-lg hover:scale-105" src={thumbnails?.medium?.url} alt="Image" />
       <div className="p-3">
         <p className=" text-xl font-semibold">{title.slice(0,35)}...</p>

@@ -7,6 +7,8 @@ import Body from "./components/Body";
 import WatchVideoPage from "./components/WatchVideoPage";
 import MainContainer from "./components/MainContainer";
 import YoutubeChannelPage from "./components/YoutubeChannelPage";
+import Profile from "./components/Profile";
+import SuggestedVideoPage from "./components/SuggestedVideoPage";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
             <Route index element={<MainContainer />} />
             <Route path="watch" element={<WatchVideoPage />} />
             <Route path="channel" element={<YoutubeChannelPage />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="suggested" element={<SuggestedVideoPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

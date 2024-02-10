@@ -9,7 +9,7 @@ const SidebarItem = ({ iconClass, text, color }) => {
       <i className={`fa-solid ${iconClass}`}></i>
       <p className={color}>{text}</p>
     </div>
-  );  
+  );
 };
 
 const Sidebar = () => {
@@ -17,10 +17,10 @@ const Sidebar = () => {
 
   if (!isMenuOpen) {
     return (
-      <div className="pl-3 text-white mb-6">
+      <div className="lg:pl-3 text-white mb-6">
         <div>
           {sidebarItems.map((item, index) => (
-            <Link to="/" key={index}>
+            <Link to={"/" + item.redirect} key={index}>
               <SidebarItem
                 key={index}
                 iconClass={item.iconClass}
@@ -35,10 +35,10 @@ const Sidebar = () => {
   }
 
   return (
-    <div className="pl-3 text-white mb-6">
+    <div className="lg:pl-3 text-white mb-6">
       <div>
         {sidebarItems.map((item, index) => (
-          <Link to="/" key={index}>
+          <Link to={"/" + item.redirect} key={index}>
             <SidebarItem
               key={index}
               iconClass={item.iconClass}

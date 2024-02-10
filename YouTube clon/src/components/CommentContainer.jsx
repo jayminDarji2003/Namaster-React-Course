@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const Comment = ({ comment }) => {
   return (
-    <div className="flex border border-gray-600 my-5 p-4 gap-4 rounded-xl">
+    <div className="flex border border-gray-600 my-5 p-1 lg:p-4 gap-1 overflow-x-scroll lg:overflow-x-auto  lg:gap-4 rounded-xl">
       <div>
         <img
           className=" border-2 rounded-full border-red-600"
@@ -68,7 +68,7 @@ const CommentContainer = ({ videoId }) => {
   };
 
   return (
-    <div className="my-5 p-3 lg:w-[800px] border-2 border-gray-600 rounded-2xl">
+    <div className="my-5 p-3 w-80 lg:w-[800px] border-2 border-gray-600 rounded-2xl">
       <p className="font-bold text-lg my-1 text-white">
         Comments - {videoComments?.length}
       </p>
