@@ -94,6 +94,9 @@ export const YOUTUBE_CHANNEL_API = "https://youtube.googleapis.com/youtube/v3/ch
 // youtube video categories 
 // https://youtube.googleapis.com/youtube/v3/videoCategories?part=snippet&regionCode=IN&key=AIzaSyAchkxS61EhuWM3ftW_614cDic0SZi6FjQ
 
+// youtube channel api 
+// https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=UC49EgySW0Guwy5ThcN11ehQ&key=AIzaSyAchkxS61EhuWM3ftW_614cDic0SZi6FjQ
+
 
 
 export const comments = [

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
 import { useDispatch } from "react-redux";
 import { closeMenu } from "../utils/AppSlice";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import SuggestedVideo from "./SuggestedVideo";
 import CommentContainer from "./CommentContainer";
 import LiveChat from "./LiveChat";
@@ -28,6 +28,7 @@ const WatchVideoPage = () => {
     const json = await data.json();
     // console.log(json);
     setVideoInfo(json?.items[0]);
+    console.log(json?.items[0]);
   };
 
   return (
@@ -46,9 +47,15 @@ const WatchVideoPage = () => {
           <p className="font-bold text-xl">{videoInfo?.snippet?.title}</p>
           <div className="flex gap-5 my-5 items-center">
             <div className="flex gap-5">
-              <p className="font-bold text-2xl">
+              {/* <p className="font-bold text-2xl">
                 {videoInfo?.snippet?.channelTitle}
-              </p>
+              </p> */}
+              <Link
+                to={`/channel?v=${videoInfo?.snippet?.channelId}`} // Pass necessary props through URL
+                className="font-bold text-2xl"
+              >
+                {videoInfo?.snippet?.channelTitle}
+              </Link>
               <button className="bg-white p-2 px-3 rounded-full text-black font-bold">
                 Subscribe
               </button>

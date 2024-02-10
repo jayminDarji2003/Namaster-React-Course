@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addMessage } from "../utils/chatSlice";
 import { generateRandomName } from "../helper";
@@ -18,6 +18,7 @@ const ChatMessage = ({ name, message }) => {
 const LiveChat = () => {
   const dispatch = useDispatch();
   const chatMessages = useSelector((store) => store.chat.chatMessage);
+  const [text, setText] = useState("");
 
   useEffect(() => {
     const i = setInterval(() => {
@@ -29,21 +30,56 @@ const LiveChat = () => {
           message: "Hii, how are you. 🚀",
         })
       );
-    }, 30000);
+    }, 1000);
 
     return () => clearInterval(i); // clearing the interval
   }, []);
 
-  return (
-    <div className="my-5 p-3 lg:w-[800px] lg:h-[800px] bg-black border-2 border-gray-600 rounded-2xl overflow-y-scroll flex flex-col-reverse">
-      {/* <p className="font-bold text-xl">Live Chat</p> */}
+  const sendMessage = () => {
+    dispatch(
+      addMessage({
+        name: "Jaymin Darji",
+        message: text,
+      })
+    );
+    setText("");
+  };
 
-      {chatMessages.map((msg, index) => {
-        return (
-          <ChatMessage key={index} name={msg.name} message={msg.message} />
-        );
-      })}
-    </div>
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      sendMessage();
+    }
+  };
+
+  return (
+    <>
+      <div className="my-5 p-3 lg:w-[800px] lg:h-[500px] bg-black border-2 border-gray-600 rounded-2xl overflow-y-scroll flex flex-col-reverse">
+        {/* <p className="font-bold text-xl">Live Chat</p> */}
+
+        {chatMessages.map((msg, index) => {
+          return (
+            <ChatMessage key={index} name={msg.name} message={msg.message} />
+          );
+        })}
+      </div>
+
+      <div className="lg:w-[800px] text-black flex justify-center gap-7">
+        <input
+          type="text"
+          className="p-3 w-96 rounded-md"
+          placeholder="Enter comment"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          onKeyPress={handleKeyPress}
+        />
+        <button
+          className="text-white bg-gray-500 px-7 rounded-lg font-bold"
+          onClick={() => sendMessage()}
+        >
+          SEND
+        </button>
+      </div>
+    </>
   );
 };
 
