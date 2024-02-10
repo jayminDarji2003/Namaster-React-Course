@@ -30,7 +30,7 @@ const LiveChat = () => {
           message: "Hii, how are you. 🚀",
         })
       );
-    }, 10000000);
+    }, 2000);
 
     return () => clearInterval(i); // clearing the interval
   }, []);

@@ -25,3 +25,32 @@ var nameList = [
 export function generateRandomName() {
     return nameList[Math.floor(Math.random() * nameList.length)];
 };
+
+
+function isPrime(num) {
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
+            return false;
+        }
+    }
+    return num > 1;
+}
+
+export function findPrime(n) {
+    if (n <= 0) {
+        return "";
+    }
+
+    let primes = [];
+    let num = 2;
+
+    while (primes.length < n) {
+        if (isPrime(num)) {
+            primes.push(num);
+        }
+        num++;
+    }
+
+    return primes[n - 1];
+}
+

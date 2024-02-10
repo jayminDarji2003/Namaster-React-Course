@@ -56,9 +56,12 @@ const WatchVideoPage = () => {
               >
                 {videoInfo?.snippet?.channelTitle}
               </Link>
-              <button className="bg-white w-60 md:w-40 p-2 px-3 rounded-full text-black font-bold">
+              <Link
+                to={`/channel?v=${videoInfo?.snippet?.channelId}`}
+                className="bg-white w-60 md:w-40 p-2 px-3 rounded-full text-black font-bold text-center"
+              >
                 Subscribe
-              </button>
+              </Link>
             </div>
             <div className="flex gap-5 text-base md:text-xl flex-wrap">
               <div className="flex items-center gap-2 text-md">
