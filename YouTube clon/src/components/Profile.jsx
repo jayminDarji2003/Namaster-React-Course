@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { findPrime } from "../helper";
 import { closeMenu } from "../utils/AppSlice";
 import { useDispatch } from "react-redux";
@@ -8,7 +8,7 @@ const Profile = () => {
   const [isDarkTheme, setIsDarkTheme] = useState(true);
   const dispatch = useDispatch();
 
-  const prime = findPrime(text);
+  const prime = useMemo(() => findPrime(text), [text]);
 
   const handleDarkTheme = () => {
     setIsDarkTheme(!isDarkTheme);
