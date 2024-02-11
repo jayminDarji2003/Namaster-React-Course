@@ -17,7 +17,7 @@ const SuggestedVideo = () => {
   };
 
   return (
-    <div className="border-2 border-gray-600 p-1 lg:p-2 bg-black rounded-2xl ">
+    <div className="border-2 w-72 lg:w-full border-gray-600 p-1 lg:p-2 bg-black rounded-2xl ">
       <p className="text-2xl font-bold text-center mb-4">Suggested Videos</p>
       <div>
         {SuggestedVideo.map((info) => {

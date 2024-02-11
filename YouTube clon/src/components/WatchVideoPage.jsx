@@ -96,7 +96,7 @@ const WatchVideoPage = () => {
           </div>
 
           {/* description section  */}
-          <div className="my-5 p-3 w-80 lg:w-[800px] border-2 border-gray-600 rounded-2xl overflow-hidden">
+          <div className="my-5 p-3 w-72 lg:w-[800px] border-2 border-gray-600 rounded-2xl overflow-hidden">
             <p className="font-bold text-lg my-1">Description</p>
             <p>{videoInfo?.snippet?.description}</p>
           </div>

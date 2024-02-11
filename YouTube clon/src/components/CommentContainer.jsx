@@ -68,7 +68,7 @@ const CommentContainer = ({ videoId }) => {
   };
 
   return (
-    <div className="my-5 p-3 w-80 lg:w-[800px] border-2 border-gray-600 rounded-2xl">
+    <div className="my-5 p-3 w-72 lg:w-[800px] border-2 border-gray-600 rounded-2xl">
       <p className="font-bold text-lg my-1 text-white">
         Comments - {videoComments?.length}
       </p>
